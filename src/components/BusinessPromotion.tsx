@@ -1,0 +1,97 @@
+import React from 'react';
+import { Sparkles, Clapperboard, Share2, TrendingUp, CheckCircle2, MessageCircle, Rocket } from 'lucide-react';
+import { BUSINESS_PROMOTION_CARDS, getWhatsAppUrl } from '../data/siteContent';
+
+export const BusinessPromotion: React.FC = () => {
+  const getCardIcon = (name: string) => {
+    switch (name) {
+      case 'Sparkles':
+        return <Sparkles className="w-6 h-6 text-cyan-400" />;
+      case 'Clapperboard':
+        return <Clapperboard className="w-6 h-6 text-purple-400" />;
+      case 'Share2':
+        return <Share2 className="w-6 h-6 text-emerald-400" />;
+      case 'TrendingUp':
+      default:
+        return <TrendingUp className="w-6 h-6 text-pink-400" />;
+    }
+  };
+
+  return (
+    <section className="relative py-24 bg-[#070B14]">
+      {/* Glow Effects */}
+      <div className="absolute top-1/3 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-[130px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3">
+            <Rocket className="w-3.5 h-3.5" />
+            <span>BUSINESS GROWTH ENGINE</span>
+          </div>
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+            PROMOTE YOUR BUSINESS WITH <span className="text-gradient-cyan">CREATIVE CONTENT</span>
+          </h2>
+          <p className="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            “Make your business stand out with professional graphics, promotional videos, menu cards, social media creatives and digital marketing materials.”
+          </p>
+        </div>
+
+        {/* 4 Visual Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+          {BUSINESS_PROMOTION_CARDS.map((card, idx) => (
+            <div
+              key={card.id}
+              className="relative rounded-2xl bg-[#0D1424] border border-gray-800 hover:border-cyan-400/40 p-6 transition-all duration-300 group hover:-translate-y-1.5 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)] flex flex-col justify-between"
+            >
+              <div>
+                <div className="w-12 h-12 rounded-xl bg-[#131E36] border border-cyan-500/20 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:border-cyan-400/40 transition-all">
+                  {getCardIcon(card.iconName)}
+                </div>
+
+                <h3 className="font-heading font-bold text-xl text-white mb-2">
+                  {card.title}
+                </h3>
+
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed mb-5">
+                  {card.desc}
+                </p>
+
+                <div className="space-y-2 mb-4">
+                  {card.benefits.map((b, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs text-gray-300">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                      <span>{b}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-gray-800/80">
+                <span className="text-[10px] font-mono text-cyan-300 font-bold uppercase tracking-wider">
+                  HIGH CONVERSION IMPACT
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Main CTA */}
+        <div className="text-center">
+          <a
+            href={getWhatsAppUrl('Hello Sukhen Sarkar, I want to promote my business with your creative design and video content. Let us discuss.')}
+            target="_blank"
+            rel="noopener noreferrer"
+            id="biz-promo-whatsapp-btn"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 text-white font-bold text-base shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.7)] hover:scale-[1.03] active:scale-98 transition-all"
+          >
+            <Rocket className="w-5 h-5 animate-pulse" />
+            <span>🚀 PROMOTE MY BUSINESS</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  );
+};

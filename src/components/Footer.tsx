@@ -1,9 +1,12 @@
 import React from 'react';
-import { MessageCircle, Sparkles, ArrowUp, Mail, Phone } from 'lucide-react';
-import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
+import { MessageCircle, Sparkles, ArrowUp, Mail, Phone, Lock, ShieldCheck } from 'lucide-react';
+import { getWhatsAppUrl } from '../data/siteContent';
 import { SukhenLogo } from './SukhenLogo';
+import { useAdmin } from '../context/AdminContext';
 
 export const Footer: React.FC = () => {
+  const { openAdmin, brandInfo } = useAdmin();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -44,7 +47,7 @@ export const Footer: React.FC = () => {
               />
               <div className="flex flex-col">
                 <span className="font-heading font-black text-lg text-white tracking-wide uppercase">
-                  {BRAND_INFO.name}
+                  {brandInfo.name}
                 </span>
                 <span className="text-[10px] text-[#00E5FF] font-mono uppercase tracking-widest">
                   GRAPHIC DESIGNER • DIGITAL STUDIO
@@ -53,7 +56,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-gray-400 leading-relaxed max-w-md text-xs sm:text-sm">
-              {BRAND_INFO.taglinePrimary}
+              {brandInfo.taglinePrimary}
             </p>
 
             <p className="text-gray-500 text-xs">
@@ -113,7 +116,7 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="font-mono text-sm font-bold text-emerald-400 hover:text-emerald-300 transition-colors block mt-0.5"
               >
-                {BRAND_INFO.phone}
+                {brandInfo.phone}
               </a>
             </div>
 
@@ -135,13 +138,23 @@ export const Footer: React.FC = () => {
         {/* Bottom Copyright Row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 font-mono text-xs">
-            © 2026 {BRAND_INFO.name}. All Rights Reserved.
+            © 2026 {brandInfo.name}. All Rights Reserved.
           </p>
 
           <div className="flex items-center gap-4">
-            <span className="text-gray-500 font-mono text-[11px]">
-              Crafted with Precision & Innovation
+            <button
+              onClick={openAdmin}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0D1424] border border-cyan-500/20 text-gray-400 hover:text-cyan-300 hover:border-cyan-500/50 text-xs font-mono transition-all cursor-pointer shadow-sm hover:scale-105"
+              title="Open Admin Portal"
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Admin Portal</span>
+            </button>
+
+            <span className="text-gray-600 font-mono text-[11px] hidden sm:inline">
+              Ctrl+Shift+A
             </span>
+
             <button
               onClick={scrollToTop}
               className="p-2.5 rounded-xl bg-[#0D1424] border border-cyan-500/20 text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,229,255,0.3)] transition-all cursor-pointer group"

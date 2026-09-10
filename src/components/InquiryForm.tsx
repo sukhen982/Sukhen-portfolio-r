@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { getWhatsAppUrl } from '../data/siteContent';
+import { useAdmin } from '../context/AdminContext';
 
 const SERVICES_LIST = [
   'Website Making (Business / Portfolio / Landing Page)',
@@ -33,6 +34,7 @@ interface InquiryFormProps {
 }
 
 export const InquiryForm: React.FC<InquiryFormProps> = ({ initialService }) => {
+  const { addInquiry } = useAdmin();
   const [formData, setFormData] = useState({
     fullName: '',
     mobileNumber: '',
@@ -76,6 +78,17 @@ export const InquiryForm: React.FC<InquiryFormProps> = ({ initialService }) => {
       setErrorMessage('Please provide a brief description of your project.');
       return;
     }
+
+    addInquiry({
+      fullName: formData.fullName.trim(),
+      mobileNumber: formData.mobileNumber.trim(),
+      whatsappNumber: formData.whatsappNumber.trim(),
+      service: formData.service,
+      projectDetails: formData.projectDetails.trim(),
+      budget: formData.budget.trim(),
+      deadline: formData.deadline.trim(),
+      referenceFileNote: formData.referenceNotes.trim(),
+    });
 
     setIsSubmitted(true);
   };

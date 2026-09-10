@@ -16,15 +16,18 @@ import {
 } from '../data/siteContent';
 import { PortfolioCategory, PortfolioItem } from '../types';
 import { ProjectModal } from './ProjectModal';
+import { useAdmin } from '../context/AdminContext';
 
 export const Portfolio: React.FC = () => {
+  const { portfolioItems: adminPortfolio } = useAdmin();
+  const allItems = adminPortfolio && adminPortfolio.length > 0 ? adminPortfolio : PORTFOLIO_ITEMS;
   const [activeCategory, setActiveCategory] = useState<PortfolioCategory>('ALL');
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
 
   const filteredProjects =
     activeCategory === 'ALL'
-      ? PORTFOLIO_ITEMS
-      : PORTFOLIO_ITEMS.filter((item) => item.category === activeCategory);
+      ? allItems
+      : allItems.filter((item) => item.category === activeCategory);
 
   return (
     <section id="portfolio" className="relative py-24 bg-[#070B14]">

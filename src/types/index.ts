@@ -92,3 +92,20 @@ export interface InquiryFormData {
   deadline: string;
   referenceFileNote?: string;
 }
+
+export type InquiryStatus = 'NEW' | 'CONTACTED' | 'IN_PROGRESS' | 'COMPLETED' | 'ARCHIVED';
+
+export interface InquiryRecord extends InquiryFormData {
+  id: string;
+  createdAt: string;
+  status: InquiryStatus;
+  adminNotes?: string;
+}
+
+export interface AdminUser {
+  email: string;
+  name: string;
+  role: string;
+  avatarUrl?: string;
+  lastLogin?: string;
+}

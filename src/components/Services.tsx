@@ -19,12 +19,15 @@ import { motion } from 'motion/react';
 import { ALL_SERVICES, getWhatsAppUrl } from '../data/siteContent';
 import { ServiceItem } from '../types';
 import { ServiceDetailModal } from './ServiceDetailModal';
+import { useAdmin } from '../context/AdminContext';
 
 interface ServicesProps {
   onSelectForInquiry: (serviceTitle: string) => void;
 }
 
 export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
+  const { services: adminServices } = useAdmin();
+  const servicesList = adminServices && adminServices.length > 0 ? adminServices : ALL_SERVICES;
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
   const getServiceIcon = (iconName: string) => {
@@ -83,7 +86,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
 
         {/* 10 Animated Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ALL_SERVICES.map((service, idx) => (
+          {servicesList.map((service, idx) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 25 }}

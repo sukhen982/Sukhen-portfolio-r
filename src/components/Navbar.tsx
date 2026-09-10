@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
-import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
+import { MessageCircle, Menu, X, ArrowUpRight, Sparkles, ShieldCheck } from 'lucide-react';
+import { getWhatsAppUrl } from '../data/siteContent';
 import { SukhenLogo } from './SukhenLogo';
+import { useAdmin } from '../context/AdminContext';
 
 interface NavbarProps {
   onOpenInquiry?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
+  const { openAdmin, brandInfo } = useAdmin();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -80,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
                 <span className="font-heading font-bold text-lg tracking-tight text-white group-hover:text-[#00E5FF] transition-colors uppercase">
-                  {BRAND_INFO.name}
+                  {brandInfo.name}
                 </span>
                 <Sparkles className="w-3.5 h-3.5 text-[#00E5FF] opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
@@ -111,8 +113,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             })}
           </nav>
 
-          {/* Right Action CTA (WhatsApp) */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Right Action CTA (WhatsApp & Admin Shortcut) */}
+          <div className="hidden sm:flex items-center gap-2.5">
             <a
               href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to discuss a project with you.')}
               target="_blank"
@@ -123,9 +125,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
               <MessageCircle className="w-3.5 h-3.5 text-[#00E676] mr-1.5 group-hover:rotate-12 transition-transform" />
               <span className="text-white">WHATSAPP</span>
               <span className="ml-1.5 text-[10px] bg-black/60 border border-[#00E5FF]/40 px-1.5 py-0.5 rounded-full font-mono text-[#00E5FF]">
-                {BRAND_INFO.phone}
+                {brandInfo.phone}
               </span>
             </a>
+
+            {/* Admin Console Quick Trigger */}
+            <button
+              onClick={openAdmin}
+              id="nav-admin-btn"
+              className="p-2 rounded-full bg-[#0D1424] border border-cyan-500/20 text-gray-400 hover:text-cyan-300 hover:border-cyan-400 transition-all cursor-pointer shadow-sm hover:scale-105"
+              title="Studio Admin Console (Ctrl+Shift+A)"
+              aria-label="Admin Portal"
+            >
+              <ShieldCheck className="w-4 h-4 text-cyan-400" />
+            </button>
           </div>
 
           {/* Mobile Hamburger Toggle */}
@@ -168,7 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                 className="btn-rgbk-primary btn-anim-whatsapp group w-full py-3 rounded-xl text-sm font-bold shadow-lg cursor-pointer flex items-center justify-center hover:scale-102 transition-transform"
               >
                 <MessageCircle className="w-5 h-5 mr-1.5 group-hover:rotate-12 transition-transform" />
-                <span>Chat on WhatsApp ({BRAND_INFO.phone})</span>
+                <span>Chat on WhatsApp ({brandInfo.phone})</span>
               </a>
 
               {onOpenInquiry && (
@@ -182,6 +195,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                   Request a Project Quote
                 </button>
               )}
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  openAdmin();
+                }}
+                className="w-full py-2.5 rounded-xl text-xs font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center gap-2 hover:bg-cyan-500/20 transition-colors"
+              >
+                <ShieldCheck className="w-4 h-4" />
+                <span>Studio Admin Console</span>
+              </button>
             </div>
           </div>
         </div>

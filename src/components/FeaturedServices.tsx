@@ -167,9 +167,9 @@ export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ onSelectServ
                   href={getWhatsAppUrl(`Hello Sukhen Sarkar, I would like to start a project related to ${feat.title} (${feat.subtitle}).`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-[#0D1424] ${config.btnHoverGradient} border border-white/10 hover:text-white font-semibold text-xs transition-all duration-200 shadow-sm text-gray-200`}
+                  className="btn-rgbk-secondary w-full py-3 rounded-xl font-bold text-xs gap-2 cursor-pointer shadow-md hover:filter hover:brightness-110"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-4 h-4 text-[#00E676]" />
                   <span>START YOUR PROJECT</span>
                 </a>
               </div>

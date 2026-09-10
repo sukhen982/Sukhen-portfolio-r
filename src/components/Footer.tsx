@@ -122,9 +122,9 @@ export const Footer: React.FC = () => {
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to inquire about your services.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30 transition-colors text-xs font-mono font-semibold"
+                className="btn-rgbk-secondary px-3.5 py-2 rounded-xl text-xs font-mono font-bold gap-1.5 cursor-pointer inline-flex items-center"
               >
-                <MessageCircle className="w-3.5 h-3.5" />
+                <MessageCircle className="w-3.5 h-3.5 text-[#00E676]" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>

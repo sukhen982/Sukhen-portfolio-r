@@ -84,10 +84,10 @@ export const BusinessPromotion: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             id="biz-promo-whatsapp-btn"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 text-white font-bold text-base shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_40px_rgba(16,185,129,0.7)] hover:scale-[1.03] active:scale-98 transition-all"
+            className="btn-rgbk-primary px-8 py-4 rounded-xl font-bold text-base tracking-wide gap-3 cursor-pointer shadow-xl inline-flex items-center"
           >
-            <Rocket className="w-5 h-5 animate-pulse" />
-            <span>🚀 PROMOTE MY BUSINESS</span>
+            <Rocket className="w-5 h-5 animate-pulse text-[#070B14]" />
+            <span>PROMOTE MY BUSINESS</span>
           </a>
         </div>
 

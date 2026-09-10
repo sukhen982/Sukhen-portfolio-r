@@ -43,7 +43,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenInquiry }) => {
           <button
             onClick={onOpenInquiry}
             id="final-start-project-btn"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-[#FF2A5F] via-[#8B5CF6] to-[#00E5FF] text-white font-bold text-sm shadow-[0_0_25px_rgba(255,42,95,0.35)] hover:shadow-[0_0_35px_rgba(0,229,255,0.6)] hover:scale-[1.02] active:scale-98 transition-all cursor-pointer"
+            className="btn-rgbk-primary w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm tracking-wide gap-2.5 cursor-pointer"
           >
             <span>START MY PROJECT</span>
             <ArrowRight className="w-4 h-4" />
@@ -55,9 +55,9 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenInquiry }) => {
             target="_blank"
             rel="noopener noreferrer"
             id="final-whatsapp-sukhen-btn"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-[#00E676] to-[#00E5FF] text-[#070B14] font-black text-sm shadow-[0_0_25px_rgba(0,230,118,0.35)] hover:shadow-[0_0_35px_rgba(0,230,118,0.6)] hover:scale-[1.02] active:scale-98 transition-all"
+            className="btn-rgbk-secondary w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm tracking-wide gap-2.5 cursor-pointer"
           >
-            <MessageCircle className="w-5 h-5 fill-current" />
+            <MessageCircle className="w-5 h-5 text-[#00E676]" />
             <span>WHATSAPP SUKHEN</span>
           </a>
         </div>

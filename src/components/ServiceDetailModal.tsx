@@ -76,9 +76,9 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             href={getWhatsAppUrl(`Hello Sukhen Sarkar, I would like to get a quote and details for "${service.title}" (Service ${service.numberCode}).`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-sm shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all"
+            className="flex-1 btn-rgbk-primary py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer inline-flex items-center justify-center"
           >
-            <MessageCircle className="w-5 h-5 fill-white/20" />
+            <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
             <span>Chat on WhatsApp ({service.title})</span>
           </a>
 
@@ -88,10 +88,10 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
               onSelectForInquiry(service.title);
               onClose();
             }}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white/5 border border-cyan-500/30 text-cyan-300 hover:text-white hover:bg-cyan-500/20 font-semibold text-sm transition-all"
+            className="btn-rgbk-secondary px-5 py-3.5 rounded-xl font-semibold text-sm gap-2 cursor-pointer inline-flex items-center justify-center"
           >
             <span>Fill Inquiry Form</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#00E5FF]" />
           </button>
         </div>
       </div>

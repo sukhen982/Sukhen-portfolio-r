@@ -92,9 +92,9 @@ export const ContactSection: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               id="contact-large-whatsapp-btn"
-              className="w-full inline-flex items-center justify-center gap-3 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 text-white font-bold text-base shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.7)] hover:scale-[1.01] transition-all"
+              className="btn-rgbk-primary w-full py-4 rounded-2xl font-bold text-base tracking-wide gap-3 cursor-pointer shadow-xl inline-flex items-center justify-center"
             >
-              <MessageCircle className="w-6 h-6 fill-white/20" />
+              <MessageCircle className="w-6 h-6 fill-[#070B14]/20" />
               <span>CHAT DIRECTLY ON WHATSAPP ({BRAND_INFO.phone})</span>
             </a>
           </div>

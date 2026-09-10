@@ -137,19 +137,19 @@ export const About: React.FC<AboutProps> = ({ onOpenInquiry }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="about-work-together-btn"
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-sm shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] hover:scale-[1.02] active:scale-98 transition-all duration-200"
+                className="btn-rgbk-primary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2.5 cursor-pointer"
               >
-                <MessageCircle className="w-5 h-5 fill-white/20" />
+                <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
                 <span>LET'S WORK TOGETHER</span>
               </a>
 
               {onOpenInquiry && (
                 <button
                   onClick={onOpenInquiry}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#0D1424] border border-cyan-500/30 text-cyan-300 hover:text-white hover:bg-cyan-500/10 font-semibold text-sm transition-all"
+                  className="btn-rgbk-secondary px-6 py-3.5 rounded-xl font-semibold text-sm gap-2 cursor-pointer"
                 >
                   <span>Submit Project Inquiry</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-[#00E5FF]" />
                 </button>
               )}
             </div>

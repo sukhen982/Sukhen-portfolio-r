@@ -96,26 +96,26 @@ export const FloatingWhatsApp: React.FC = () => {
             />
             <button
               type="submit"
-              className="px-3 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-xs flex items-center justify-center transition-colors"
+              className="btn-rgbk-primary px-3 py-2 rounded-xl text-xs flex items-center justify-center cursor-pointer shadow-md"
               title="Send to WhatsApp"
             >
-              <Send className="w-4 h-4" />
+              <Send className="w-4 h-4 text-[#070B14]" />
             </button>
           </form>
         </div>
       )}
 
-      {/* Floating Action Beacon Button */}
+      {/* Floating Action Beacon Button in RGBK Combined Style */}
       <button
         onClick={handleToggle}
         id="floating-whatsapp-btn"
-        className="group relative flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-sm shadow-[0_0_25px_rgba(16,185,129,0.5)] hover:shadow-[0_0_35px_rgba(16,185,129,0.8)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+        className="group relative flex items-center gap-2.5 px-4 py-3.5 rounded-full btn-rgbk-primary shadow-[0_0_25px_rgba(0,0,0,0.9),0_0_18px_rgba(255,42,95,0.4),0_0_18px_rgba(0,229,255,0.4),0_0_18px_rgba(0,230,118,0.4)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer text-[#070B14]"
         aria-label="Chat with Sukhen Sarkar on WhatsApp"
       >
-        <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-emerald-400 animate-ping" />
-        <MessageCircle className="w-5 h-5 fill-white/20 group-hover:rotate-12 transition-transform" />
-        <span className="hidden sm:inline font-mono tracking-wider">WhatsApp</span>
-        <span className="text-[11px] bg-black/30 px-2 py-0.5 rounded-full font-mono">
+        <span className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-[#FF2A5F] animate-ping" />
+        <MessageCircle className="w-5 h-5 fill-[#070B14]/20 group-hover:rotate-12 transition-transform" />
+        <span className="hidden sm:inline font-mono tracking-wider font-extrabold text-[#070B14]">WhatsApp</span>
+        <span className="text-[11px] bg-[#070B14] text-white px-2 py-0.5 rounded-full font-mono border border-white/20">
           {BRAND_INFO.phone}
         </span>
       </button>

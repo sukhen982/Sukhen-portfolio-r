@@ -47,7 +47,7 @@ export const Portfolio: React.FC = () => {
           </p>
         </div>
 
-        {/* Category Filter Tabs */}
+        {/* Category Filter Tabs in RGBK Combined Style */}
         <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
           {PORTFOLIO_CATEGORIES.map((category) => {
             const isActive = activeCategory === category;
@@ -55,10 +55,10 @@ export const Portfolio: React.FC = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-mono font-semibold transition-all duration-200 cursor-pointer ${
+                className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_0_15px_rgba(0,229,255,0.4)] scale-105'
-                    : 'bg-[#0D1424] text-gray-400 hover:text-white border border-gray-800 hover:border-cyan-500/30'
+                    ? 'btn-rgbk-pill-active scale-105'
+                    : 'bg-[#070B14] text-gray-400 hover:text-white border border-gray-800 hover:border-[#00E5FF]/40'
                 }`}
               >
                 {category}
@@ -103,24 +103,24 @@ export const Portfolio: React.FC = () => {
                   )}
 
                   {/* Quick Overlay Action on Hover */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 backdrop-blur-[2px]">
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 backdrop-blur-[2px]">
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="p-3 rounded-xl bg-cyan-500 text-black font-bold hover:scale-110 transition-transform shadow-lg shadow-cyan-500/40 cursor-pointer"
+                      className="p-3 rounded-xl btn-rgbk-secondary font-bold hover:scale-110 transition-transform cursor-pointer"
                       title="View Details"
                       aria-label="View Project"
                     >
-                      <Eye className="w-5 h-5" />
+                      <Eye className="w-5 h-5 text-[#00E5FF]" />
                     </button>
                     <a
                       href={getWhatsAppUrl(`Hello Sukhen Sarkar, I am interested in ordering a design like your portfolio item: "${project.title}".`)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 rounded-xl bg-emerald-500 text-white font-bold hover:scale-110 transition-transform shadow-lg shadow-emerald-500/40"
+                      className="p-3 rounded-xl btn-rgbk-primary font-bold hover:scale-110 transition-transform cursor-pointer"
                       title="Inquire on WhatsApp"
                       aria-label="WhatsApp Inquiry"
                     >
-                      <MessageCircle className="w-5 h-5" />
+                      <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
                     </a>
                   </div>
                 </div>
@@ -165,9 +165,9 @@ export const Portfolio: React.FC = () => {
             href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to discuss a custom design or video project from your portfolio.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-sm shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-all"
+            className="btn-rgbk-primary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer shadow-lg inline-flex items-center"
           >
-            <MessageCircle className="w-4 h-4 fill-white/20" />
+            <MessageCircle className="w-4 h-4 fill-[#070B14]/20" />
             <span>DISCUSS YOUR PROJECT ON WHATSAPP</span>
           </a>
         </div>

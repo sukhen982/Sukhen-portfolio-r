@@ -139,9 +139,9 @@ ${formData.referenceNotes ? `• *Reference Note:* ${formData.referenceNotes}` :
                   href={getWhatsAppUrl(formattedWhatsAppMsg)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-3 py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-sm shadow-[0_0_25px_rgba(16,185,129,0.4)] hover:shadow-[0_0_35px_rgba(16,185,129,0.6)] hover:scale-[1.02] transition-all"
+                  className="btn-rgbk-primary w-full py-4 rounded-xl font-bold text-sm tracking-wide gap-3 cursor-pointer shadow-xl inline-flex items-center justify-center"
                 >
-                  <MessageCircle className="w-5 h-5 fill-white/20" />
+                  <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
                   <span>CONTACT DIRECTLY ON WHATSAPP</span>
                 </a>
 
@@ -305,9 +305,9 @@ ${formData.referenceNotes ? `• *Reference Note:* ${formData.referenceNotes}` :
                 <button
                   type="submit"
                   id="submit-inquiry-btn"
-                  className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-500 text-white font-bold text-sm shadow-[0_0_25px_rgba(0,229,255,0.3)] hover:shadow-[0_0_35px_rgba(0,229,255,0.5)] hover:scale-[1.01] active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  className="btn-rgbk-primary w-full py-4 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer shadow-xl inline-flex items-center justify-center"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4 text-[#070B14]" />
                   <span>SEND PROJECT REQUEST</span>
                 </button>
               </div>

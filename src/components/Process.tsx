@@ -93,10 +93,10 @@ export const Process: React.FC = () => {
             href={getWhatsAppUrl('Hello Sukhen Sarkar, I want to start Step 1 (Contact & Discuss) for my creative project.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0D1424] hover:bg-cyan-500/10 border border-cyan-500/30 hover:border-cyan-400 text-cyan-300 hover:text-white font-semibold text-sm transition-all"
+            className="btn-rgbk-secondary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer inline-flex items-center"
           >
             <span>START STEP 01 ON WHATSAPP</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 text-[#00E5FF]" />
           </a>
         </div>
 

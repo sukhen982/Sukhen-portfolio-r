@@ -103,17 +103,17 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 id="pricing-get-quote-whatsapp-btn"
-                className="flex-1 inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-sm shadow-[0_0_20px_rgba(16,185,129,0.35)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all"
+                className="flex-1 btn-rgbk-primary py-3.5 px-6 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer inline-flex items-center justify-center"
               >
-                <MessageCircle className="w-5 h-5 fill-white/20" />
+                <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
                 <span>GET A QUOTE ON WHATSAPP</span>
               </a>
 
               <button
                 onClick={onOpenInquiry}
-                className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl bg-white/5 border border-cyan-500/30 text-cyan-300 hover:text-white hover:bg-cyan-500/15 font-semibold text-sm transition-all"
+                className="btn-rgbk-secondary py-3.5 px-6 rounded-xl font-semibold text-sm gap-2 cursor-pointer inline-flex items-center justify-center"
               >
-                <FileSpreadsheet className="w-4 h-4" />
+                <FileSpreadsheet className="w-4 h-4 text-[#FF2A5F]" />
                 <span>Fill Inquiry Form</span>
               </button>
             </div>
@@ -160,9 +160,9 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
                       key={t}
                       type="button"
                       onClick={() => setTimeline(t)}
-                      className={`px-2.5 py-2 rounded-lg text-[11px] font-mono text-center transition-all ${
+                      className={`px-2.5 py-2 rounded-lg text-[11px] font-mono text-center transition-all cursor-pointer ${
                         timeline === t
-                          ? 'bg-cyan-500/20 border border-cyan-400 text-cyan-300 font-bold'
+                          ? 'btn-rgbk-pill-active font-bold'
                           : 'bg-[#131E36] border border-gray-800 text-gray-400 hover:text-white'
                       }`}
                     >
@@ -181,7 +181,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-xs shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all"
+                className="w-full btn-rgbk-primary py-3.5 rounded-xl font-bold text-xs tracking-wide gap-2 cursor-pointer inline-flex items-center justify-center"
               >
                 <span>SEND THIS SCOPE TO WHATSAPP</span>
                 <ArrowRight className="w-4 h-4" />

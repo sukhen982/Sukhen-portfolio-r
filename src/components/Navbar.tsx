@@ -118,11 +118,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
               target="_blank"
               rel="noopener noreferrer"
               id="nav-whatsapp-btn"
-              className="inline-flex items-center gap-2 bg-[#00E5FF]/10 border border-[#00E5FF]/30 px-5 py-2 rounded-full text-[#00E5FF] text-xs font-medium tracking-wide hover:bg-[#00E5FF]/20 shadow-[0_0_15px_rgba(0,229,255,0.15)] hover:shadow-[0_0_20px_rgba(0,229,255,0.3)] transition-all duration-200 active:scale-95"
+              className="btn-rgbk-secondary px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 active:scale-95 cursor-pointer"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-[#00E5FF]/20" />
-              <span>WHATSAPP</span>
-              <span className="text-[10px] bg-[#00E5FF]/20 px-1.5 py-0.5 rounded-full font-mono text-[#00E5FF]">
+              <MessageCircle className="w-3.5 h-3.5 text-[#00E676] mr-1.5" />
+              <span className="text-white">WHATSAPP</span>
+              <span className="ml-1.5 text-[10px] bg-black/60 border border-[#00E5FF]/40 px-1.5 py-0.5 rounded-full font-mono text-[#00E5FF]">
                 {BRAND_INFO.phone}
               </span>
             </a>
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             id="mobile-menu-toggle"
             aria-label="Toggle navigation menu"
-            className="lg:hidden p-2 rounded-xl bg-[#0D1424] border border-cyan-500/20 text-gray-300 hover:text-cyan-400 focus:outline-none"
+            className="lg:hidden p-2 rounded-xl bg-[#070B14] border border-[#00E5FF]/30 text-gray-300 hover:text-[#00E5FF] focus:outline-none"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -159,15 +159,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
               </a>
             ))}
 
-            <div className="pt-4 border-t border-gray-800/80 flex flex-col gap-2">
+            <div className="pt-4 border-t border-gray-800/80 flex flex-col gap-2.5">
               <a
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to know more about your services.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-sm shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+                className="btn-rgbk-primary w-full py-3 rounded-xl text-sm font-bold shadow-lg cursor-pointer"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5 mr-1.5" />
                 <span>Chat on WhatsApp ({BRAND_INFO.phone})</span>
               </a>
 
@@ -177,7 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                     setMobileMenuOpen(false);
                     onOpenInquiry();
                   }}
-                  className="w-full py-2.5 rounded-xl bg-[#0D1424] border border-cyan-500/30 text-cyan-300 text-sm font-medium hover:bg-cyan-500/10"
+                  className="btn-rgbk-secondary w-full py-2.5 rounded-xl text-sm font-semibold cursor-pointer"
                 >
                   Request a Project Quote
                 </button>

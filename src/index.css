@@ -165,3 +165,80 @@
 .pulse-ring {
   animation: pulse-ring 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 }
+
+/* ========================================================
+   RED + BLUE + GREEN + BLACK COMBINED BUTTONS (RGB-BLACK)
+   ======================================================== */
+
+/* Primary Button: Vibrant Red-Blue-Green Gradient with Rich Black Text & Obsidian Shadow */
+.btn-rgbk-primary {
+  position: relative;
+  background: linear-gradient(135deg, #FF2A5F 0%, #00E5FF 50%, #00E676 100%);
+  color: #070B14 !important;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 6px 20px rgba(7, 11, 20, 0.9),
+              0 0 20px rgba(255, 42, 95, 0.35),
+              0 0 20px rgba(0, 229, 255, 0.35),
+              0 0 20px rgba(0, 230, 118, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-rgbk-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.95),
+              0 0 28px rgba(255, 42, 95, 0.5),
+              0 0 28px rgba(0, 229, 255, 0.5),
+              0 0 28px rgba(0, 230, 118, 0.5);
+}
+
+.btn-rgbk-primary:active {
+  transform: scale(0.98);
+}
+
+/* Secondary Button: Deep Obsidian Black Body with Red-Blue-Green Border & Chromatic Glow */
+.btn-rgbk-secondary {
+  position: relative;
+  background-color: #070B14;
+  color: #FFFFFF !important;
+  font-weight: 700;
+  border: 1.5px solid transparent;
+  background-image: linear-gradient(#070B14, #070B14), linear-gradient(135deg, #FF2A5F 0%, #00E5FF 50%, #00E676 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.8),
+              0 0 15px rgba(255, 42, 95, 0.2),
+              0 0 15px rgba(0, 229, 255, 0.2),
+              0 0 15px rgba(0, 230, 118, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-rgbk-secondary:hover {
+  background-image: linear-gradient(#0D1424, #0D1424), linear-gradient(135deg, #FF2A5F 0%, #00E5FF 50%, #00E676 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.95),
+              0 0 25px rgba(255, 42, 95, 0.45),
+              0 0 25px rgba(0, 229, 255, 0.45),
+              0 0 25px rgba(0, 230, 118, 0.45);
+}
+
+.btn-rgbk-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Active Filter Pill / Tab Button: Black Core with Red-Blue-Green Border */
+.btn-rgbk-pill-active {
+  background-image: linear-gradient(#070B14, #070B14), linear-gradient(135deg, #FF2A5F 0%, #00E5FF 50%, #00E676 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border: 1.5px solid transparent !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.3), 0 0 10px rgba(255, 42, 95, 0.25);
+}

@@ -115,19 +115,19 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
               <div className="pt-4 border-t border-gray-800/80 flex items-center gap-2">
                 <button
                   onClick={() => setSelectedService(service)}
-                  className="flex-1 py-2.5 px-3 rounded-lg bg-white/5 hover:bg-cyan-500/15 border border-cyan-500/20 hover:border-cyan-400 text-xs font-medium text-cyan-300 hover:text-white transition-all flex items-center justify-center gap-1.5"
+                  className="flex-1 py-2.5 px-3 rounded-xl btn-rgbk-secondary text-xs font-semibold gap-1.5 cursor-pointer"
                 >
                   <span>Learn More</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#00E5FF]" />
                 </button>
 
                 <a
                   href={getWhatsAppUrl(`Hello Sukhen Sarkar, I would like to get a quote for "${service.title}" (Service ${service.numberCode}).`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2.5 px-3 rounded-lg bg-[#131E36] hover:bg-gradient-to-r hover:from-emerald-500 hover:to-teal-500 border border-emerald-500/30 hover:border-emerald-400 text-xs font-semibold text-emerald-300 hover:text-white transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                  className="flex-1 py-2.5 px-3 rounded-xl btn-rgbk-primary text-xs font-bold gap-1.5 cursor-pointer"
                 >
-                  <MessageCircle className="w-3.5 h-3.5" />
+                  <MessageCircle className="w-3.5 h-3.5 fill-[#070B14]/20" />
                   <span>Get Quote</span>
                 </a>
               </div>
@@ -152,7 +152,7 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
             target="_blank"
             rel="noopener noreferrer"
             id="services-custom-request-btn"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold text-sm shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] hover:scale-[1.02] active:scale-98 transition-all"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl btn-rgbk-primary font-bold text-sm tracking-wide cursor-pointer"
           >
             <span>CONTACT ME DIRECTLY</span>
             <ArrowRight className="w-4 h-4" />

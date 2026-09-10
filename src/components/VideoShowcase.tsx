@@ -102,9 +102,9 @@ export const VideoShowcase: React.FC = () => {
                 {/* Video Action Button */}
                 <button
                   onClick={() => setActiveVideo(video)}
-                  className="w-full py-2.5 rounded-xl bg-white/5 hover:bg-purple-600/20 border border-purple-500/30 text-purple-300 hover:text-white text-xs font-semibold font-mono flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="btn-rgbk-secondary w-full py-2.5 rounded-xl text-xs font-bold font-mono flex items-center justify-center gap-2 transition-all cursor-pointer"
                 >
-                  <Play className="w-3.5 h-3.5 fill-current" />
+                  <Play className="w-3.5 h-3.5 fill-[#00E5FF] text-[#00E5FF]" />
                   <span>WATCH VIDEO PREVIEW</span>
                 </button>
               </div>
@@ -128,9 +128,9 @@ export const VideoShowcase: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             id="video-create-promo-btn"
-            className="shrink-0 inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold text-sm shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_30px_rgba(124,58,237,0.7)] hover:scale-[1.02] active:scale-98 transition-all"
+            className="shrink-0 btn-rgbk-primary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2.5 cursor-pointer inline-flex items-center"
           >
-            <MessageCircle className="w-5 h-5 fill-white/20" />
+            <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
             <span>CREATE MY PROMOTIONAL VIDEO</span>
           </a>
         </div>
@@ -187,9 +187,9 @@ export const VideoShowcase: React.FC = () => {
                 href={getWhatsAppUrl(`Hello Sukhen Sarkar, I watched your video showcase "${activeVideo.title}" and would like to order a similar promo video for my business.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-xs shadow-lg shadow-emerald-500/30"
+                className="btn-rgbk-primary w-full sm:w-auto px-6 py-2.5 rounded-xl font-bold text-xs gap-2 cursor-pointer inline-flex items-center justify-center"
               >
-                <MessageCircle className="w-4 h-4 fill-white/20" />
+                <MessageCircle className="w-4 h-4 fill-[#070B14]/20" />
                 <span>Discuss This Video on WhatsApp</span>
               </a>
             </div>

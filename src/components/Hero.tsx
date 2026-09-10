@@ -161,35 +161,35 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap items-center gap-3.5 w-full sm:w-auto mb-8"
             >
-              {/* Primary: Start Your Project (RGB WhatsApp Glow) */}
+              {/* Primary: Start Your Project (RGBK Combined Primary) */}
               <a
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to know more about your services.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-primary-whatsapp-btn"
-                className="bg-gradient-to-r from-[#00E676] to-[#00E5FF] text-[#070B14] px-7 py-3.5 rounded-md font-bold text-sm tracking-wide shadow-[0_0_25px_rgba(0,230,118,0.35)] hover:shadow-[0_0_35px_rgba(0,229,255,0.55)] hover:scale-[1.02] active:scale-98 transition-all inline-flex items-center gap-2"
+                className="btn-rgbk-primary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2 cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 fill-current" />
                 <span>START YOUR PROJECT</span>
               </a>
 
-              {/* Secondary: View Portfolio */}
+              {/* Secondary: View Portfolio (RGBK Combined Secondary) */}
               <a
                 href="#portfolio"
                 id="hero-view-portfolio-btn"
-                className="border border-white/15 bg-white/5 px-7 py-3.5 rounded-md font-bold text-sm tracking-wide hover:bg-white/10 hover:border-[#00E5FF]/40 transition-all text-white inline-flex items-center gap-2"
+                className="btn-rgbk-secondary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2 cursor-pointer"
               >
                 <Palette className="w-4 h-4 text-[#00E5FF]" />
                 <span>VIEW PORTFOLIO</span>
               </a>
 
-              {/* Third: Get A Quote (Violet Accent) */}
+              {/* Third: Get A Quote (RGBK Combined Secondary) */}
               <button
                 onClick={onOpenInquiry}
                 id="hero-get-quote-btn"
-                className="border border-[#8B5CF6]/40 bg-[#8B5CF6]/10 text-purple-200 px-6 py-3.5 rounded-md font-bold text-sm tracking-wide hover:bg-[#8B5CF6]/25 hover:border-[#8B5CF6]/70 transition-all inline-flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(139,92,246,0.15)]"
+                className="btn-rgbk-secondary px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2 cursor-pointer"
               >
-                <FileSpreadsheet className="w-4 h-4 text-[#8B5CF6]" />
+                <FileSpreadsheet className="w-4 h-4 text-[#FF2A5F]" />
                 <span>GET A QUOTE</span>
               </button>
             </motion.div>

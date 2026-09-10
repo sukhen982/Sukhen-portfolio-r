@@ -2,6 +2,7 @@ import React from 'react';
 import { X, CheckCircle2, MessageCircle, ArrowRight, Sparkles } from 'lucide-react';
 import { ServiceItem } from '../types';
 import { getWhatsAppUrl } from '../data/siteContent';
+import { WebsiteMakingBadgeLogo, WebTechStackStrip } from './WebTechLogos';
 
 interface ServiceDetailModalProps {
   service: ServiceItem | null;
@@ -44,10 +45,17 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           </span>
         </div>
 
-        {/* Title */}
-        <h3 className="font-heading font-black text-2xl sm:text-3xl text-white tracking-wide mb-3">
-          {service.title}
-        </h3>
+        {/* Title & Logo */}
+        <div className="flex items-center gap-4 mb-3">
+          {(service.id === 'service-web' || service.title.toLowerCase().includes('website')) && (
+            <div className="shrink-0">
+              <WebsiteMakingBadgeLogo size="md" />
+            </div>
+          )}
+          <h3 className="font-heading font-black text-2xl sm:text-3xl text-white tracking-wide">
+            {service.title}
+          </h3>
+        </div>
 
         {/* Description */}
         <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-6">
@@ -68,6 +76,13 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             ))}
           </ul>
         </div>
+
+        {/* Dedicated Web Development Tech Logos Showcase */}
+        {(service.id === 'service-web' || service.title.toLowerCase().includes('website')) && (
+          <div className="mb-6 p-4 rounded-xl bg-[#081020] border border-cyan-500/30 shadow-inner">
+            <WebTechStackStrip title="SUPPORTED TECHNOLOGIES & PLATFORMS" compact={false} />
+          </div>
+        )}
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 pt-2">

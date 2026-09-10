@@ -15,6 +15,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
 import { SukhenLogo } from './SukhenLogo';
+import { WebsiteMakingBadgeLogo } from './WebTechLogos';
 
 interface HeroProps {
   onOpenInquiry: () => void;
@@ -263,19 +264,34 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
                 whileHover={{ y: -4, scale: 1.02 }}
-                className="bg-[#0D1424] border border-[#00E5FF]/20 hover:border-[#00E5FF]/60 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.25)]"
+                className="bg-[#0D1424] border border-[#00E5FF]/20 hover:border-[#00E5FF]/60 p-5 rounded-2xl flex flex-col items-center text-center justify-between transition-all duration-300 group shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.25)]"
               >
-                <div className="w-12 h-12 bg-[#00E5FF]/10 border border-[#00E5FF]/30 rounded-full flex items-center justify-center mb-3 group-hover:scale-115 group-hover:rotate-6 transition-transform text-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.2)]">
-                  <Globe className="w-6 h-6" />
+                <div className="flex flex-col items-center">
+                  <div className="mb-2.5 group-hover:scale-110 transition-transform">
+                    <WebsiteMakingBadgeLogo size="sm" />
+                  </div>
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] shadow-[0_0_5px_#00E5FF]" />
+                    <span className="text-[9px] font-mono font-bold text-[#00E5FF] uppercase">BLUE CHANNEL</span>
+                  </div>
+                  <h4 className="font-bold text-white text-sm">Website Making</h4>
+                  <p className="text-[10px] text-[#A8B0C0] mt-0.5 uppercase tracking-wider font-mono">
+                    Landing Pages • Fast Sites
+                  </p>
                 </div>
-                <div className="flex items-center gap-1.5 mb-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] shadow-[0_0_5px_#00E5FF]" />
-                  <span className="text-[9px] font-mono font-bold text-[#00E5FF] uppercase">BLUE CHANNEL</span>
+
+                {/* Mini Tech Stack Logos */}
+                <div className="flex items-center justify-center gap-1 mt-2.5 pt-2 border-t border-cyan-500/20 w-full">
+                  <span className="text-[8px] font-mono text-cyan-300/80 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-500/30">
+                    React
+                  </span>
+                  <span className="text-[8px] font-mono text-gray-300 bg-white/5 px-1.5 py-0.5 rounded border border-white/10">
+                    Next.js
+                  </span>
+                  <span className="text-[8px] font-mono text-amber-300/90 bg-amber-950/50 px-1.5 py-0.5 rounded border border-amber-500/30">
+                    HTML5
+                  </span>
                 </div>
-                <h4 className="font-bold text-white text-sm">Website Making</h4>
-                <p className="text-[10px] text-[#A8B0C0] mt-1 uppercase tracking-wider font-mono">
-                  Landing Pages • Fast Sites
-                </p>
               </motion.div>
 
               {/* Card 3: Graphic Design & Branding [GREEN CHANNEL] */}

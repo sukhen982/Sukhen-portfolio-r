@@ -20,6 +20,7 @@ import { ALL_SERVICES, getWhatsAppUrl } from '../data/siteContent';
 import { ServiceItem } from '../types';
 import { ServiceDetailModal } from './ServiceDetailModal';
 import { useAdmin } from '../context/AdminContext';
+import { WebsiteMakingBadgeLogo, WebTechStackStrip } from './WebTechLogos';
 
 interface ServicesProps {
   onSelectForInquiry: (serviceTitle: string) => void;
@@ -99,9 +100,15 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
               {/* Card Header & Icon */}
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#131E36] border border-cyan-500/20 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                    {getServiceIcon(service.iconName)}
-                  </div>
+                  {service.id === 'service-web' || service.title.toLowerCase().includes('website') ? (
+                    <div className="group-hover:scale-110 transition-transform">
+                      <WebsiteMakingBadgeLogo size="sm" />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 rounded-xl bg-[#131E36] border border-cyan-500/20 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      {getServiceIcon(service.iconName)}
+                    </div>
+                  )}
                   
                   <div className="flex items-center gap-2">
                     {service.popular && (
@@ -121,9 +128,16 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
                 </h3>
 
                 {/* Short Description */}
-                <p className="text-xs sm:text-sm text-gray-300/90 leading-relaxed mb-6">
+                <p className="text-xs sm:text-sm text-gray-300/90 leading-relaxed mb-4">
                   {service.shortDesc}
                 </p>
+
+                {/* If Website Making, render Tech Stack Logos right inside card */}
+                {(service.id === 'service-web' || service.title.toLowerCase().includes('website')) && (
+                  <div className="mb-4">
+                    <WebTechStackStrip title="SUPPORTED TECHNOLOGIES" compact={true} />
+                  </div>
+                )}
               </div>
 
               {/* Action Buttons: Learn More & Get Quote */}

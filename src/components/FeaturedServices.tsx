@@ -2,6 +2,7 @@ import React from 'react';
 import { Palette, Globe, Film, Rocket, ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
 import { motion } from 'motion/react';
 import { FEATURED_SERVICES, getWhatsAppUrl } from '../data/siteContent';
+import { WebsiteMakingBadgeLogo, WebTechStackStrip } from './WebTechLogos';
 
 interface FeaturedServicesProps {
   onSelectService?: (serviceTitle: string) => void;
@@ -138,9 +139,15 @@ export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ onSelectServ
                 {/* Top Row: Icon & RGB Channel Badge */}
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className={`w-14 h-14 rounded-xl ${config.iconBg} flex items-center justify-center ${config.iconText} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md`}>
-                      {getIcon(feat.icon)}
-                    </div>
+                    {feat.id === 'feat-website' ? (
+                      <div className="group-hover:scale-110 transition-all duration-300">
+                        <WebsiteMakingBadgeLogo size="md" />
+                      </div>
+                    ) : (
+                      <div className={`w-14 h-14 rounded-xl ${config.iconBg} flex items-center justify-center ${config.iconText} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md`}>
+                        {getIcon(feat.icon)}
+                      </div>
+                    )}
                     
                     {/* RGB Channel Badge with Pulse */}
                     <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border ${config.badgeBg}`}>
@@ -157,12 +164,12 @@ export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ onSelectServ
                   <h4 className="text-xs font-mono font-semibold mb-3" style={{ color: config.dotColor }}>
                     {feat.subtitle}
                   </h4>
-                  <p className="text-sm text-gray-300 leading-relaxed mb-5">
+                  <p className="text-sm text-gray-300 leading-relaxed mb-4">
                     {feat.description}
                   </p>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
+                  <div className="flex flex-wrap gap-1.5 mb-3">
                     {feat.tags.map((tag) => (
                       <span
                         key={tag}
@@ -172,6 +179,13 @@ export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ onSelectServ
                       </span>
                     ))}
                   </div>
+
+                  {/* Website Tech Logos Showcase for feat-website */}
+                  {feat.id === 'feat-website' && (
+                    <div className="mb-4">
+                      <WebTechStackStrip title="TECH STACK & FRAMEWORKS" compact={true} />
+                    </div>
+                  )}
                 </div>
 
                 {/* Bottom Action Button (WhatsApp with bouncy icon animation) */}

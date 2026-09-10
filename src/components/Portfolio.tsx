@@ -17,6 +17,7 @@ import {
 import { PortfolioCategory, PortfolioItem } from '../types';
 import { ProjectModal } from './ProjectModal';
 import { useAdmin } from '../context/AdminContext';
+import { WebsiteMakingBadgeLogo, WebTechStackStrip } from './WebTechLogos';
 
 export const Portfolio: React.FC = () => {
   const { portfolioItems: adminPortfolio } = useAdmin();
@@ -81,6 +82,31 @@ export const Portfolio: React.FC = () => {
             );
           })}
         </motion.div>
+
+        {/* Dedicated Web Development Tech Showcase Banner when Website Making is selected */}
+        {activeCategory === 'WEBSITE MAKING' && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.35 }}
+            className="mb-10 p-5 rounded-2xl bg-[#0D1424] border border-cyan-500/30 flex flex-col sm:flex-row items-center gap-4 shadow-xl"
+          >
+            <div className="shrink-0">
+              <WebsiteMakingBadgeLogo size="md" />
+            </div>
+            <div className="flex-1 w-full">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                <h3 className="font-heading font-bold text-white text-base">
+                  Modern Web Engines & Frameworks
+                </h3>
+                <span className="text-[10px] font-mono text-cyan-300 bg-cyan-500/10 px-2.5 py-0.5 rounded-full border border-cyan-500/30 self-start sm:self-auto">
+                  100% Mobile Responsive • SEO Optimized
+                </span>
+              </div>
+              <WebTechStackStrip compact={false} title="TECHNOLOGY LOGOS & STACK" />
+            </div>
+          </motion.div>
+        )}
 
         {/* Portfolio Grid with Motion */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

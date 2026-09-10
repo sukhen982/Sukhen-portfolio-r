@@ -19,6 +19,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
   const [timeline, setTimeline] = useState('Standard (2-3 Days)');
 
   const serviceOptions = [
+    'Website Making (Business / Portfolio / Landing Page)',
     'Graphic Design (Poster / Banner / Flyer)',
     'Advertisement Video Making',
     'Brand Promotion Video',

@@ -59,6 +59,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
           : 'bg-transparent py-5'
       }`}
     >
+      {/* Dynamic RGB Top Spectrum Accent */}
+      <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-rgb-line shadow-[0_0_10px_rgba(0,229,255,0.5)]" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Brand Logo */}

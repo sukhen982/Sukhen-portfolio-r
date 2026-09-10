@@ -11,20 +11,20 @@ import {
 export const BRAND_INFO = {
   name: 'Sukhen Sarkar',
   initials: 'SS',
-  shortTitle: 'Graphic Designer & Digital Creative Services',
-  fullTitle: 'Graphic Designer | Video Creator | Brand Promotion Specialist | Online Service Provider',
+  shortTitle: 'Graphic Designer, Website Maker & Digital Services',
+  fullTitle: 'Graphic Designer | Website Maker | Video Creator | Brand Promotion Specialist',
   phone: '8972524740',
   internationalPhone: '+91 8972524740',
   rawPhone: '918972524740',
   whatsappUrl: 'https://wa.me/918972524740',
   email: 'Sukhen982@gmail.com', // editable placeholder
   taglinePrimary: '“Your Idea. My Creativity. One Powerful Digital Solution.”',
-  taglineSecondary: 'Design • Video • Branding • Digital Services',
-  marketingStatement: '“Turning Ideas Into Powerful Visual Experiences.”',
+  taglineSecondary: 'Design • Websites • Video • Digital Services',
+  marketingStatement: '“Turning Ideas Into Powerful Visual Experiences & Websites.”',
   supportingText:
-    'Professional Graphic Design, Advertisement Videos, Brand Promotion, Menu Cards, ID Cards, T-Shirt Designs and Online Digital Services — All in One Place.',
+    'Professional Graphic Design, Website Making, Advertisement Videos, Brand Promotion, Menu Cards, ID Cards, T-Shirt Designs and Online Digital Services — All in One Place.',
   aboutBio:
-    'Hi, I’m Sukhen Sarkar, a Graphic Designer and Digital Service Provider. I create professional visual designs, promotional videos, branding materials and digital solutions for individuals, businesses and organizations. My goal is to transform ideas into attractive, professional and effective digital experiences.',
+    'Hi, I’m Sukhen Sarkar, a Graphic Designer, Website Maker and Digital Service Provider. I craft professional responsive websites, visual designs, promotional videos, branding materials and digital solutions for individuals, businesses and organizations. My goal is to transform ideas into attractive, modern and high-performing digital realities.',
   socials: {
     instagram: 'https://instagram.com/', // editable placeholder
     facebook: 'https://facebook.com/', // editable placeholder
@@ -51,6 +51,16 @@ export const FEATURED_SERVICES: FeaturedService[] = [
     ctaText: 'START DESIGN PROJECT',
   },
   {
+    id: 'feat-website',
+    icon: 'Globe',
+    title: 'WEBSITES',
+    subtitle: 'Website Making & Web Design',
+    description: 'Modern, fast-loading, mobile-friendly websites with instant WhatsApp chat integration engineered to grow your business.',
+    tags: ['Business Sites', 'Landing Pages', 'Portfolio Sites', 'Fast & Responsive'],
+    gradient: 'from-[#00E5FF]/20 to-[#3B82F6]/20',
+    ctaText: 'MAKE MY WEBSITE',
+  },
+  {
     id: 'feat-video',
     icon: 'Film',
     title: 'VIDEO',
@@ -74,8 +84,28 @@ export const FEATURED_SERVICES: FeaturedService[] = [
 
 export const ALL_SERVICES: ServiceItem[] = [
   {
-    id: 'service-01',
+    id: 'service-web',
     numberCode: '01',
+    title: 'WEBSITE MAKING & WEB DESIGN',
+    category: 'Web Design & Development',
+    shortDesc: 'Modern responsive websites, business landing pages, portfolio sites, and online stores.',
+    fullDesc:
+      'Complete website design and development crafted to convert visitors into paying clients. Mobile-first responsive layouts, SEO-optimized structure, custom domain setup, WhatsApp chat buttons, fast loading speeds, and modern visual aesthetics.',
+    iconName: 'Globe',
+    deliverables: [
+      'Business & Portfolio Websites',
+      'High-Converting Landing Pages',
+      'Mobile-Friendly Responsive Design',
+      'WhatsApp Click-to-Chat Integration',
+      'SEO Friendly & Fast Speed',
+      'Domain & Hosting Setup Assistance',
+    ],
+    gradient: 'from-[#00E5FF]/25 via-transparent to-transparent',
+    popular: true,
+  },
+  {
+    id: 'service-01',
+    numberCode: '02',
     title: 'GRAPHIC DESIGN',
     category: 'Visual Design',
     shortDesc: 'Posters, banners, flyers, brochures, social media creatives and promotional graphics.',
@@ -88,7 +118,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-02',
-    numberCode: '02',
+    numberCode: '03',
     title: 'ADVERTISEMENT VIDEO MAKING',
     category: 'Video Production',
     shortDesc: 'Creative advertisement videos for products, businesses, services, events and social media.',
@@ -101,7 +131,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-03',
-    numberCode: '03',
+    numberCode: '04',
     title: 'BRAND PROMOTION VIDEO',
     category: 'Branding & Video',
     shortDesc: 'Professional promotional videos designed to present businesses and brands attractively.',
@@ -113,7 +143,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-04',
-    numberCode: '04',
+    numberCode: '05',
     title: 'HOTEL & RESTAURANT MENU CARD',
     category: 'Print & Hospitality',
     shortDesc: 'Modern menu card designs for hotels, restaurants, cafés and food businesses.',
@@ -125,7 +155,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-05',
-    numberCode: '05',
+    numberCode: '06',
     title: 'ID CARD MAKING',
     category: 'Corporate & School',
     shortDesc: 'Professional ID card design for schools, offices, organizations, businesses and events.',
@@ -137,7 +167,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-06',
-    numberCode: '06',
+    numberCode: '07',
     title: 'T-SHIRT DESIGN & PRINTING',
     category: 'Apparel & Merchandise',
     shortDesc: 'Creative custom T-shirt designs for personal use, events, groups and business promotion.',
@@ -149,7 +179,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-07',
-    numberCode: '07',
+    numberCode: '08',
     title: 'SOCIAL MEDIA DESIGN',
     category: 'Digital Marketing',
     shortDesc: 'Facebook, Instagram, YouTube thumbnails, advertisements and social media promotional creatives.',
@@ -162,7 +192,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-08',
-    numberCode: '08',
+    numberCode: '09',
     title: 'PRINTING DESIGN',
     category: 'Commercial Print',
     shortDesc: 'Professional print-ready designs for different business and personal requirements.',
@@ -174,7 +204,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-09',
-    numberCode: '09',
+    numberCode: '10',
     title: 'ALL ONLINE WORK',
     category: 'Digital Assistance',
     shortDesc: 'Various online services, digital work, document preparation and online assistance.',
@@ -186,7 +216,7 @@ export const ALL_SERVICES: ServiceItem[] = [
   },
   {
     id: 'service-10',
-    numberCode: '10',
+    numberCode: '11',
     title: 'OTHER DIGITAL SERVICES',
     category: 'Custom Solutions',
     shortDesc: 'Allow customers to request custom digital work that is not listed above.',
@@ -200,6 +230,7 @@ export const ALL_SERVICES: ServiceItem[] = [
 
 export const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
   'ALL',
+  'WEBSITE MAKING',
   'GRAPHIC DESIGN',
   'ADVERTISEMENT VIDEO',
   'BRAND PROMOTION',
@@ -212,6 +243,34 @@ export const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
 ];
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
+  {
+    id: 'port-web-1',
+    title: 'Nexus Business & Digital Agency Website',
+    category: 'WEBSITE MAKING',
+    categoryLabel: 'Website Making',
+    shortDesc: 'High-speed dark themed portfolio & agency website with WhatsApp booking & interactive UI.',
+    fullDetails:
+      'Designed and built a sleek, conversion-oriented multi-section website with responsive mobile layout, custom interactive service showcases, instant WhatsApp contact integration, and Google SEO optimization. Fast loading on all mobile networks.',
+    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop',
+    aspect: 'landscape',
+    tags: ['Website Making', 'Landing Page', 'Mobile Responsive', 'SEO Friendly'],
+    clientType: 'Corporate & Creative Business',
+    deliverablesList: ['Full Responsive Website', 'Mobile-First Layout', 'Direct WhatsApp Integration', 'SEO & Speed Optimized'],
+  },
+  {
+    id: 'port-web-2',
+    title: 'The Royal Bistro Gourmet Restaurant & Café Website',
+    category: 'WEBSITE MAKING',
+    categoryLabel: 'Website Making',
+    shortDesc: 'Modern restaurant website featuring digital QR food menu, table reservation & location maps.',
+    fullDetails:
+      'Crafted an appetizing, mobile-optimized website for a premier dining café. Includes full online menu card showcase, one-tap WhatsApp reservations, Google Map integration, and fast loading speeds on mobile data.',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
+    aspect: 'landscape',
+    tags: ['Restaurant Website', 'QR Menu Sync', 'WhatsApp Booking', 'Local SEO'],
+    clientType: 'Hospitality & Restaurant',
+    deliverablesList: ['Digital Menu Website', 'One-Click WhatsApp Order', 'Google Maps Location', 'Mobile Fast Loading'],
+  },
   {
     id: 'port-1',
     title: 'Cyberpunk Neon Brand Campaign',

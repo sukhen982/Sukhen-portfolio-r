@@ -14,6 +14,7 @@ import {
 import { getWhatsAppUrl } from '../data/siteContent';
 
 const SERVICES_LIST = [
+  'Website Making (Business / Portfolio / Landing Page)',
   'Graphic Design',
   'Advertisement Video',
   'Brand Promotion',
@@ -23,7 +24,7 @@ const SERVICES_LIST = [
   'Social Media Design',
   'Printing Design',
   'Online Work',
-  'Other',
+  'Other Digital Service',
 ];
 
 interface InquiryFormProps {

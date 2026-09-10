@@ -5,6 +5,7 @@ import {
   ArrowRight,
   Palette,
   Film,
+  Globe,
   Layers,
   FileSpreadsheet,
   CheckCircle2,
@@ -22,6 +23,7 @@ interface HeroProps {
 
 const TITLES = [
   'GRAPHIC DESIGNER',
+  'WEBSITE MAKER & DEVELOPER',
   'VIDEO CREATOR',
   'BRAND PROMOTION SPECIALIST',
   'DIGITAL CREATIVE EXPERT',
@@ -42,10 +44,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
       id="home"
       className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-radial-grid"
     >
-      {/* Ambient Gradient Flares */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 -left-32 w-96 h-96 bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-cyan-400/10 rounded-full blur-[130px] pointer-events-none" />
+      {/* Dynamic RGB Chromatic Ambient Glow Flares */}
+      <div className="absolute top-1/4 -left-20 w-[480px] h-[480px] bg-[#FF2A5F]/12 rounded-full blur-[140px] pointer-events-none animate-pulse" style={{ animationDuration: '7s' }} />
+      <div className="absolute top-1/3 -right-20 w-[500px] h-[500px] bg-[#00E5FF]/15 rounded-full blur-[150px] pointer-events-none animate-pulse" style={{ animationDuration: '9s' }} />
+      <div className="absolute bottom-10 left-1/3 w-[450px] h-[450px] bg-[#00E676]/10 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute top-20 right-1/4 w-[380px] h-[380px] bg-[#8B5CF6]/15 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Subtle Luminous RGB Horizontal Accent Line */}
+      <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-rgb-line opacity-75" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -53,31 +59,40 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
           {/* Left Column: Hero Copy & Actions */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             
-            {/* Top Positioning Eyebrow */}
+            {/* Top Positioning Eyebrow with RGB Spectrum Indicator */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-4 flex items-center gap-2.5"
+              className="mb-5 inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-[#0D1424]/90 border border-white/10 backdrop-blur-md shadow-lg"
             >
-              <SukhenLogo variant="mark" className="w-8 h-8 drop-shadow-[0_0_10px_rgba(0,229,255,0.4)]" />
-              <span className="h-[1px] w-8 bg-[#00E5FF]"></span>
-              <span className="text-[#00E5FF] text-xs font-bold uppercase tracking-[0.3em]">
-                Sukhen Sarkar • Studio
+              <SukhenLogo variant="mark" className="w-7 h-7 drop-shadow-[0_0_10px_rgba(0,229,255,0.4)]" />
+              
+              {/* RGB 4-Dot Chromatic Cluster */}
+              <div className="flex items-center gap-1 px-1 py-0.5 rounded bg-black/40 border border-white/5">
+                <span className="w-2 h-2 rounded-full bg-[#FF2A5F] shadow-[0_0_6px_#FF2A5F]" title="Red Channel" />
+                <span className="w-2 h-2 rounded-full bg-[#00E676] shadow-[0_0_6px_#00E676]" title="Green Channel" />
+                <span className="w-2 h-2 rounded-full bg-[#00E5FF] shadow-[0_0_6px_#00E5FF]" title="Blue Channel" />
+                <span className="w-2 h-2 rounded-full bg-[#8B5CF6] shadow-[0_0_6px_#8B5CF6]" title="Violet Channel" />
+              </div>
+
+              <span className="text-[11px] font-mono font-bold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-[#FF2A5F] via-[#00E5FF] to-[#00E676] uppercase">
+                RGB CREATIVE STUDIO
               </span>
             </motion.div>
 
-            {/* Main Brand Heading */}
+            {/* Main Brand Heading with RGB Chromatic Gradient */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-heading font-bold text-4xl sm:text-6xl xl:text-7xl text-white leading-[0.98] mb-4 tracking-tight"
+              className="font-heading font-black text-4xl sm:text-6xl xl:text-7xl text-white leading-[0.98] mb-4 tracking-tight"
             >
               Turning Ideas<br />
               Into Powerful<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E5FF] to-[#7C3AED]">
-                Visuals.</span>
+              <span className="text-gradient-rgbv font-black">
+                Visuals & Websites.
+              </span>
             </motion.h1>
 
             {/* Animated Dynamic Role Title */}
@@ -109,25 +124,50 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-[#A8B0C0] text-base sm:text-lg max-w-lg mb-8 leading-relaxed"
+              className="text-[#A8B0C0] text-base sm:text-lg max-w-lg mb-6 leading-relaxed"
             >
-              Professional Graphic Design, Advertisement Videos, and Digital Services—All in One Place. Your vision, expertly crafted for impact.
+              Professional Website Making, Graphic Design, 4K Advertisement Videos, and Brand Promotion. Crafted with precision, speed, and vibrant visual impact.
             </motion.p>
 
-            {/* Three Action Buttons matching Elegant Dark */}
+            {/* RGB Chromatic Spectrum Channels Bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full max-w-xl mb-7"
+            >
+              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#0D1424] border border-[#FF2A5F]/20 hover:border-[#FF2A5F]/50 transition-colors">
+                <span className="w-2 h-2 rounded-full bg-[#FF2A5F] shadow-[0_0_6px_#FF2A5F]" />
+                <span className="text-[10px] font-mono font-bold text-white uppercase">4K Video Ads</span>
+              </div>
+              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#0D1424] border border-[#00E676]/20 hover:border-[#00E676]/50 transition-colors">
+                <span className="w-2 h-2 rounded-full bg-[#00E676] shadow-[0_0_6px_#00E676]" />
+                <span className="text-[10px] font-mono font-bold text-white uppercase">Graphic Art</span>
+              </div>
+              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#0D1424] border border-[#00E5FF]/20 hover:border-[#00E5FF]/50 transition-colors">
+                <span className="w-2 h-2 rounded-full bg-[#00E5FF] shadow-[0_0_6px_#00E5FF]" />
+                <span className="text-[10px] font-mono font-bold text-white uppercase">Websites</span>
+              </div>
+              <div className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg bg-[#0D1424] border border-[#8B5CF6]/20 hover:border-[#8B5CF6]/50 transition-colors">
+                <span className="w-2 h-2 rounded-full bg-[#8B5CF6] shadow-[0_0_6px_#8B5CF6]" />
+                <span className="text-[10px] font-mono font-bold text-white uppercase">Branding</span>
+              </div>
+            </motion.div>
+
+            {/* Three Action Buttons matching RGB Energy */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap items-center gap-3.5 w-full sm:w-auto mb-8"
             >
-              {/* Primary: Start Your Project */}
+              {/* Primary: Start Your Project (RGB WhatsApp Glow) */}
               <a
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to know more about your services.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-primary-whatsapp-btn"
-                className="bg-[#00E5FF] text-[#070B14] px-7 py-3.5 rounded-md font-bold text-sm tracking-wide shadow-[0_0_20px_rgba(0,229,255,0.3)] hover:shadow-[0_0_30px_rgba(0,229,255,0.5)] hover:scale-[1.02] active:scale-98 transition-all inline-flex items-center gap-2"
+                className="bg-gradient-to-r from-[#00E676] to-[#00E5FF] text-[#070B14] px-7 py-3.5 rounded-md font-bold text-sm tracking-wide shadow-[0_0_25px_rgba(0,230,118,0.35)] hover:shadow-[0_0_35px_rgba(0,229,255,0.55)] hover:scale-[1.02] active:scale-98 transition-all inline-flex items-center gap-2"
               >
                 <MessageCircle className="w-4 h-4 fill-current" />
                 <span>START YOUR PROJECT</span>
@@ -137,19 +177,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
               <a
                 href="#portfolio"
                 id="hero-view-portfolio-btn"
-                className="border border-white/10 bg-white/5 px-7 py-3.5 rounded-md font-bold text-sm tracking-wide hover:bg-white/10 hover:border-white/20 transition-all text-white inline-flex items-center gap-2"
+                className="border border-white/15 bg-white/5 px-7 py-3.5 rounded-md font-bold text-sm tracking-wide hover:bg-white/10 hover:border-[#00E5FF]/40 transition-all text-white inline-flex items-center gap-2"
               >
                 <Palette className="w-4 h-4 text-[#00E5FF]" />
                 <span>VIEW PORTFOLIO</span>
               </a>
 
-              {/* Third: Get A Quote */}
+              {/* Third: Get A Quote (Violet Accent) */}
               <button
                 onClick={onOpenInquiry}
                 id="hero-get-quote-btn"
-                className="border border-[#7C3AED]/30 bg-[#7C3AED]/10 text-purple-200 px-6 py-3.5 rounded-md font-bold text-sm tracking-wide hover:bg-[#7C3AED]/20 hover:border-[#7C3AED]/50 transition-all inline-flex items-center gap-2 cursor-pointer"
+                className="border border-[#8B5CF6]/40 bg-[#8B5CF6]/10 text-purple-200 px-6 py-3.5 rounded-md font-bold text-sm tracking-wide hover:bg-[#8B5CF6]/25 hover:border-[#8B5CF6]/70 transition-all inline-flex items-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(139,92,246,0.15)]"
               >
-                <FileSpreadsheet className="w-4 h-4 text-purple-400" />
+                <FileSpreadsheet className="w-4 h-4 text-[#8B5CF6]" />
                 <span>GET A QUOTE</span>
               </button>
             </motion.div>
@@ -159,92 +199,107 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="pt-4 border-t border-white/5 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-[#A8B0C0]"
+              className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-[#A8B0C0]"
             >
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#00E676]" />
                 <span>Direct WhatsApp Turnaround</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 text-[#00E5FF]" />
-                <span>Digital & Print Ready HD</span>
+                <span>Modern Responsive Websites</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" />
-                <span>100% Custom Solutions</span>
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#FF2A5F]" />
+                <span>4K HD Ads & Print Designs</span>
               </div>
             </motion.div>
           </div>
 
-          {/* Right Column: Elegant Dark Multi-Service Grid Visual */}
+          {/* Right Column: Dynamic RGB Chromatic Multi-Service Grid */}
           <div className="lg:col-span-5 relative">
             <div className="grid grid-cols-2 gap-4">
               
-              {/* Card 1: Col-span-2 Featured Video Service */}
-              <div className="col-span-2 bg-[#0D1424] border border-white/5 hover:border-[#7C3AED]/40 p-6 rounded-2xl flex flex-col justify-between group overflow-hidden relative transition-all duration-300 shadow-xl">
-                <div className="absolute top-0 right-0 p-4 opacity-15 pointer-events-none group-hover:opacity-25 transition-opacity">
-                  <Film className="w-20 h-20 text-[#7C3AED]" />
+              {/* Card 1: Col-span-2 Featured Video Service [RED CHANNEL] */}
+              <div className="col-span-2 bg-[#0D1424] border border-[#FF2A5F]/20 hover:border-[#FF2A5F]/60 p-6 rounded-2xl flex flex-col justify-between group overflow-hidden relative transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(255,42,95,0.2)]">
+                <div className="absolute top-0 right-0 p-4 opacity-15 pointer-events-none group-hover:opacity-30 transition-opacity">
+                  <Film className="w-20 h-20 text-[#FF2A5F]" />
                 </div>
                 <div>
-                  <span className="text-[#7C3AED] text-xs font-bold uppercase tracking-widest">
-                    FEATURED SERVICE
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold mt-2 text-white group-hover:text-purple-300 transition-colors">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-[#FF2A5F] shadow-[0_0_8px_#FF2A5F]" />
+                    <span className="text-[#FF2A5F] text-[11px] font-bold font-mono uppercase tracking-widest">
+                      RED CHANNEL • FEATURED VIDEO
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-red-300 transition-colors">
                     Advertisement Video Making
                   </h3>
                   <p className="text-[#A8B0C0] text-xs sm:text-sm mt-2 leading-relaxed max-w-sm">
-                    Cinematic promotional content, social reels & commercial spots for brands and businesses.
+                    Cinematic promotional content, social reels & commercial spots crafted for high brand engagement.
                   </p>
                 </div>
                 <div className="mt-4 flex items-center gap-2">
-                  <span className="text-[10px] font-mono bg-purple-900/40 text-purple-200 border border-purple-500/30 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-mono bg-[#FF2A5F]/15 text-red-200 border border-[#FF2A5F]/30 px-2 py-0.5 rounded">
                     4K ULTRA HD
                   </span>
                   <span className="text-[10px] font-mono text-[#A8B0C0]">
-                    Reels • Promo Ads • Motion
+                    Reels • Promo Ads • Motion Graphics
                   </span>
                 </div>
               </div>
 
-              {/* Card 2: Graphic Design */}
-              <div className="bg-[#0D1424] border border-white/5 hover:border-[#00E5FF]/40 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg">
+              {/* Card 2: Website Making [BLUE / CYAN CHANNEL] */}
+              <div className="bg-[#0D1424] border border-[#00E5FF]/20 hover:border-[#00E5FF]/60 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.2)]">
+                <div className="w-12 h-12 bg-[#00E5FF]/10 border border-[#00E5FF]/30 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform text-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.2)]">
+                  <Globe className="w-6 h-6" />
+                </div>
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00E5FF] shadow-[0_0_5px_#00E5FF]" />
+                  <span className="text-[9px] font-mono font-bold text-[#00E5FF] uppercase">BLUE CHANNEL</span>
+                </div>
+                <h4 className="font-bold text-white text-sm">Website Making</h4>
+                <p className="text-[10px] text-[#A8B0C0] mt-1 uppercase tracking-wider font-mono">
+                  Landing Pages • Fast Sites
+                </p>
+              </div>
+
+              {/* Card 3: Graphic Design & Branding [GREEN CHANNEL] */}
+              <div className="bg-[#0D1424] border border-[#00E676]/20 hover:border-[#00E676]/60 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg hover:shadow-[0_0_25px_rgba(0,230,118,0.2)]">
                 <div className="w-12 h-12 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <SukhenLogo variant="mark" className="w-12 h-12 drop-shadow-[0_0_12px_rgba(0,229,255,0.3)]" />
+                  <SukhenLogo variant="mark" className="w-12 h-12 drop-shadow-[0_0_12px_rgba(0,230,118,0.4)]" />
+                </div>
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00E676] shadow-[0_0_5px_#00E676]" />
+                  <span className="text-[9px] font-mono font-bold text-[#00E676] uppercase">GREEN CHANNEL</span>
                 </div>
                 <h4 className="font-bold text-white text-sm">Graphic Design</h4>
                 <p className="text-[10px] text-[#A8B0C0] mt-1 uppercase tracking-wider font-mono">
-                  Logos • Menus • Print
+                  Posters • Menus • Merch
                 </p>
               </div>
 
-              {/* Card 3: Brand Promotion */}
-              <div className="bg-[#0D1424] border border-white/5 hover:border-[#7C3AED]/40 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg">
-                <div className="w-12 h-12 bg-[#7C3AED]/10 border border-[#7C3AED]/20 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <Sparkles className="w-6 h-6 text-[#7C3AED]" />
-                </div>
-                <h4 className="font-bold text-white text-sm">Brand Promotion</h4>
-                <p className="text-[10px] text-[#A8B0C0] mt-1 uppercase tracking-wider font-mono">
-                  Social Media Growth
-                </p>
-              </div>
-
-              {/* Card 4: Col-span-2 Have an Idea / Custom Quote */}
+              {/* Card 4: Col-span-2 Have an Idea / Custom Quote [VIOLET CHANNEL] */}
               <a
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I have an idea for a project and would like to get a quote.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="col-span-2 bg-gradient-to-r from-[#00E5FF]/15 via-[#0D1424] to-[#7C3AED]/15 border border-white/10 hover:border-[#00E5FF]/40 p-5 rounded-2xl flex justify-between items-center group transition-all duration-300 shadow-xl"
+                className="col-span-2 bg-gradient-to-r from-[#8B5CF6]/15 via-[#0D1424] to-[#FF2A5F]/15 border border-[#8B5CF6]/30 hover:border-[#8B5CF6]/60 p-5 rounded-2xl flex justify-between items-center group transition-all duration-300 shadow-xl hover:shadow-[0_0_25px_rgba(139,92,246,0.25)]"
               >
                 <div>
-                  <h4 className="text-lg font-bold text-white group-hover:text-[#00E5FF] transition-colors flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#8B5CF6] shadow-[0_0_5px_#8B5CF6]" />
+                    <span className="text-[9px] font-mono font-bold text-purple-300 uppercase">VIOLET CHANNEL</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors flex items-center gap-1.5">
                     <span>Have an Idea?</span>
-                    <Sparkles className="w-4 h-4 text-[#00E5FF]" />
+                    <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
                   </h4>
                   <p className="text-xs text-[#A8B0C0] mt-0.5">
                     Get a custom quote via WhatsApp today.
                   </p>
                 </div>
-                <div className="w-10 h-10 bg-white text-[#070B14] rounded-full flex items-center justify-center group-hover:bg-[#00E5FF] group-hover:scale-110 transition-all shadow-md">
+                <div className="w-10 h-10 bg-white text-[#070B14] rounded-full flex items-center justify-center group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:scale-110 transition-all shadow-md">
                   <ArrowRight className="w-5 h-5" />
                 </div>
               </a>

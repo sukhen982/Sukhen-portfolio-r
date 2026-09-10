@@ -1,5 +1,6 @@
 export type PortfolioCategory =
   | 'ALL'
+  | 'WEBSITE MAKING'
   | 'GRAPHIC DESIGN'
   | 'ADVERTISEMENT VIDEO'
   | 'BRAND PROMOTION'

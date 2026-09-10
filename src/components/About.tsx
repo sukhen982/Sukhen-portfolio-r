@@ -20,10 +20,10 @@ interface AboutProps {
 
 export const About: React.FC<AboutProps> = ({ onOpenInquiry }) => {
   const highlights = [
+    { title: 'Website Making & Web Design', desc: 'Fast, responsive landing pages & modern business websites' },
     { title: 'Graphic & Print Design', desc: 'Posters, Menus, ID Cards, T-Shirts, Flex Banners' },
     { title: 'Advertisement Videos', desc: 'Promo ads, Reels, motion typography & commercial spots' },
-    { title: 'Brand Promotion', desc: 'Unified visual identities and social campaign graphics' },
-    { title: 'Digital Online Work', desc: 'Online assistance, document prep & custom digital tasks' },
+    { title: 'Brand Promotion & Digital Work', desc: 'Unified visual identities, campaign graphics & online services' },
   ];
 
   return (
@@ -44,7 +44,7 @@ export const About: React.FC<AboutProps> = ({ onOpenInquiry }) => {
             ABOUT <span className="text-gradient-cyan">SUKHEN SARKAR</span>
           </h2>
           <p className="mt-3 text-sm text-gray-400 font-mono">
-            Graphic Designer • Video Creator • Brand Promotion Specialist • Online Service Provider
+            Graphic Designer • Website Maker • Video Creator • Brand Promotion Specialist
           </p>
         </div>
 

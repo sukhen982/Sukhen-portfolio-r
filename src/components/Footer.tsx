@@ -18,6 +18,7 @@ export const Footer: React.FC = () => {
   ];
 
   const serviceLinks = [
+    'Website Making & Web Design',
     'Graphic Design',
     'Video Making',
     'Brand Promotion',

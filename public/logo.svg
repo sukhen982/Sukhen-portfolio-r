@@ -1,0 +1,110 @@
+<svg viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fullRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9900" />
+      <stop offset="20%" stop-color="#FFD600" />
+      <stop offset="45%" stop-color="#00E5FF" />
+      <stop offset="65%" stop-color="#0070F3" />
+      <stop offset="85%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+    <linearGradient id="fullSGrad" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#FFC107" />
+      <stop offset="45%" stop-color="#FF8F00" />
+      <stop offset="100%" stop-color="#FF3D00" />
+    </linearGradient>
+    <linearGradient id="fullNibGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="50%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#E2E8F0" />
+    </linearGradient>
+    <linearGradient id="fullRibbonGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF" />
+      <stop offset="35%" stop-color="#3B82F6" />
+      <stop offset="65%" stop-color="#8B5CF6" />
+      <stop offset="85%" stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#FF8F00" />
+    </linearGradient>
+    <linearGradient id="fullTipGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF9100" />
+      <stop offset="60%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#FF1744" />
+    </linearGradient>
+    <linearGradient id="goldTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFB300" />
+      <stop offset="50%" stop-color="#FFC107" />
+      <stop offset="100%" stop-color="#FFA000" />
+    </linearGradient>
+    <filter id="fullGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Dark Base -->
+  <circle cx="300" cy="300" r="286" fill="#05070D" />
+  <!-- Glowing Border Ring -->
+  <circle cx="300" cy="300" r="282" stroke="url(#fullRingGrad)" stroke-width="11" filter="url(#fullGlow)" />
+  <circle cx="300" cy="300" r="273" stroke="#00E5FF" stroke-width="1" opacity="0.3" />
+
+  <!-- Center S Emblem -->
+  <g transform="translate(50, 15) scale(0.84)">
+    <path d="M 170 215 C 150 170 170 105 230 75 C 285 50 338 70 350 110 C 338 110 322 105 300 104 C 255 100 212 120 195 155 C 178 185 186 222 216 242 C 246 262 266 278 270 300 C 273 318 260 338 238 346 C 205 358 165 332 155 295 C 145 305 132 312 120 318 C 138 375 192 405 248 398 C 310 390 342 348 335 298 C 328 248 278 222 238 196 C 214 180 208 162 212 148 C 218 132 238 120 262 120 C 288 120 306 132 312 146 C 322 138 335 128 346 122 C 332 90 292 76 250 78 C 182 82 155 140 170 215 Z" fill="url(#fullSGrad)" />
+    <!-- Pen Nib -->
+    <path d="M 285 90 L 322 90 L 322 165 C 322 176 326 186 333 194 L 336 198 C 342 206 343 218 338 228 L 306 288 C 304 292 300 292 298 288 L 268 228 C 263 218 264 206 270 198 L 273 194 C 280 186 284 176 284 165 Z" fill="url(#fullNibGrad)" stroke="#94A3B8" stroke-width="1.5" />
+    <rect x="283" y="152" width="40" height="6" rx="2" fill="#94A3B8" />
+    <rect x="283" y="161" width="40" height="3" rx="1" fill="#64748B" />
+    <circle cx="302" cy="216" r="4.5" fill="#0A0F1D" />
+    <path d="M 302 220 L 302 288" stroke="#0A0F1D" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 302 165 L 302 211" stroke="#94A3B8" stroke-width="1.5" />
+    <!-- 2x2 Pixel Squares -->
+    <g transform="translate(340, 88)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#00E5FF" />
+      <rect x="22" y="0" width="18" height="18" rx="3" fill="#0066FF" />
+      <rect x="0" y="22" width="18" height="18" rx="3" fill="#EC4899" />
+      <rect x="22" y="22" width="18" height="18" rx="3" fill="#22C55E" />
+      <rect x="44" y="22" width="13" height="13" rx="2" fill="#F59E0B" opacity="0.9" />
+    </g>
+    <!-- Paintbrush Swoosh Ribbon -->
+    <path d="M 195 350 C 230 365 278 365 325 342 C 368 320 392 276 390 232 C 390 205 378 182 362 168 C 358 174 356 182 358 190 C 370 210 374 230 370 250 C 365 282 340 312 304 326 C 265 340 228 334 195 318 Z" fill="url(#fullRibbonGrad)" />
+    <!-- Paintbrush Tip -->
+    <g transform="translate(393, 202) rotate(45)">
+      <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5" />
+      <path d="M -8 -4 C -10 -15 -4 -28 0 -34 C 4 -28 10 -15 8 -4 Z" fill="url(#fullTipGrad)" />
+      <path d="M -4 -4 C -5 -12 -2 -22 0 -26 C 2 -22 5 -12 4 -4 Z" fill="#FDE047" />
+    </g>
+  </g>
+
+  <!-- Sukhen Sarkar text -->
+  <g transform="translate(300, 395)" text-anchor="middle">
+    <text x="0" y="0" font-family="'Brush Script MT', 'Dancing Script', 'Caveat', cursive, sans-serif" font-size="48" font-weight="bold">
+      <tspan fill="#FFFFFF">Sukhen </tspan>
+      <tspan fill="url(#goldTextGrad)">Sarkar</tspan>
+    </text>
+  </g>
+
+  <!-- GRAPHIC DESIGNER text -->
+  <g transform="translate(300, 432)" text-anchor="middle">
+    <text x="0" y="0" fill="#FFFFFF" font-family="'Inter', sans-serif" font-size="17" font-weight="800" letter-spacing="0.34em">
+      GRAPHIC DESIGNER
+    </text>
+  </g>
+
+  <!-- Golden Divider with Diamond -->
+  <g transform="translate(300, 452)">
+    <line x1="-150" y1="0" x2="-20" y2="0" stroke="#F59E0B" stroke-width="1.5" opacity="0.85" />
+    <polygon points="0,-4 4,0 0,4 -4,0" fill="#F59E0B" />
+    <line x1="20" y1="0" x2="150" y2="0" stroke="#F59E0B" stroke-width="1.5" opacity="0.85" />
+  </g>
+
+  <!-- Logos | Menu Cards | Pro Designs -->
+  <g transform="translate(300, 482)" text-anchor="middle">
+    <text x="0" y="0" fill="#E2E8F0" font-family="'Inter', sans-serif" font-size="14" font-weight="500" letter-spacing="0.08em">
+      <tspan fill="#FFFFFF">Logos </tspan>
+      <tspan fill="#F59E0B"> | </tspan>
+      <tspan fill="#FFFFFF">Menu Cards </tspan>
+      <tspan fill="#F59E0B"> | </tspan>
+      <tspan fill="#FFFFFF">Pro Designs</tspan>
+    </text>
+  </g>
+</svg>

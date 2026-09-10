@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
+import { SukhenLogo } from './SukhenLogo';
 
 interface AboutProps {
   onOpenInquiry?: () => void;
@@ -59,24 +60,21 @@ export const About: React.FC<AboutProps> = ({ onOpenInquiry }) => {
               {/* Main Profile Card Container */}
               <div className="relative rounded-2xl bg-[#0D1424] border border-cyan-500/30 p-6 shadow-2xl overflow-hidden">
                 
-                {/* Profile Visual / Avatar */}
-                <div className="relative aspect-[4/4.5] rounded-xl overflow-hidden bg-gradient-to-b from-[#131E36] to-[#070B14] border border-cyan-500/20 mb-5 group">
-                  <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop"
-                    alt="Sukhen Sarkar - Graphic Designer & Video Creator"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-90"
-                    loading="lazy"
+                {/* Official Brand Logo Emblem */}
+                <div className="relative aspect-square rounded-xl overflow-hidden bg-[#05070D] border border-cyan-500/20 mb-5 p-3 flex items-center justify-center group">
+                  <SukhenLogo
+                    variant="full"
+                    className="w-full h-full max-w-[280px] drop-shadow-[0_0_25px_rgba(0,229,255,0.3)] transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D1424] via-transparent to-transparent opacity-80" />
                   
                   {/* Status Overlay */}
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between p-2.5 rounded-lg bg-[#070B14]/80 backdrop-blur-md border border-cyan-500/30">
-                    <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-xs font-semibold text-white font-mono">AVAILABLE FOR PROJECTS</span>
+                  <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between p-2 rounded-lg bg-[#070B14]/90 backdrop-blur-md border border-cyan-500/30">
+                    <div className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-[#00E5FF] animate-pulse" />
+                      <span className="text-[11px] font-semibold text-white font-mono">OFFICIAL BRAND MARK</span>
                     </div>
                     <span className="text-[10px] text-cyan-300 bg-cyan-500/20 px-2 py-0.5 rounded font-mono font-bold">
-                      WHATSAPP READY
+                      VERIFIED
                     </span>
                   </div>
                 </div>

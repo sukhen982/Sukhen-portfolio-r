@@ -13,6 +13,7 @@ import {
   Clock,
 } from 'lucide-react';
 import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
+import { SukhenLogo } from './SukhenLogo';
 
 export const ContactSection: React.FC = () => {
   return (
@@ -51,12 +52,17 @@ export const ContactSection: React.FC = () => {
                 <span className="text-xs font-mono text-gray-400">INSTANT RESPONSE</span>
               </div>
 
-              <h3 className="font-heading font-black text-2xl sm:text-3xl text-white mb-2">
-                {BRAND_INFO.name}
-              </h3>
-              <p className="text-xs sm:text-sm font-mono text-cyan-300 mb-6">
-                {BRAND_INFO.fullTitle}
-              </p>
+              <div className="flex items-center gap-3.5 mb-2">
+                <SukhenLogo variant="mark" className="w-12 h-12 flex-shrink-0 drop-shadow-[0_0_15px_rgba(0,229,255,0.3)]" />
+                <div>
+                  <h3 className="font-heading font-black text-2xl sm:text-3xl text-white">
+                    {BRAND_INFO.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm font-mono text-[#00E5FF]">
+                    {BRAND_INFO.fullTitle}
+                  </p>
+                </div>
+              </div>
 
               {/* Large WhatsApp Display Box */}
               <div className="p-6 rounded-2xl bg-[#131E36]/60 border border-emerald-500/30 mb-8">

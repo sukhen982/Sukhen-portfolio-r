@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
+import { SukhenLogo } from './SukhenLogo';
 
 interface HeroProps {
   onOpenInquiry: () => void;
@@ -57,11 +58,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-4 flex items-center gap-2"
+              className="mb-4 flex items-center gap-2.5"
             >
-              <span className="h-[1px] w-12 bg-[#00E5FF]"></span>
+              <SukhenLogo variant="mark" className="w-8 h-8 drop-shadow-[0_0_10px_rgba(0,229,255,0.4)]" />
+              <span className="h-[1px] w-8 bg-[#00E5FF]"></span>
               <span className="text-[#00E5FF] text-xs font-bold uppercase tracking-[0.3em]">
-                Creative Digital Studio
+                Sukhen Sarkar • Studio
               </span>
             </motion.div>
 
@@ -206,12 +208,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
 
               {/* Card 2: Graphic Design */}
               <div className="bg-[#0D1424] border border-white/5 hover:border-[#00E5FF]/40 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg">
-                <div className="w-12 h-12 bg-[#00E5FF]/10 border border-[#00E5FF]/20 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                  <Palette className="w-6 h-6 text-[#00E5FF]" />
+                <div className="w-12 h-12 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                  <SukhenLogo variant="mark" className="w-12 h-12 drop-shadow-[0_0_12px_rgba(0,229,255,0.3)]" />
                 </div>
                 <h4 className="font-bold text-white text-sm">Graphic Design</h4>
                 <p className="text-[10px] text-[#A8B0C0] mt-1 uppercase tracking-wider font-mono">
-                  Posters • Banners • Logo
+                  Logos • Menus • Print
                 </p>
               </div>
 

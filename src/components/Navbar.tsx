@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MessageCircle, Menu, X, ArrowUpRight, Sparkles } from 'lucide-react';
 import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
+import { SukhenLogo } from './SukhenLogo';
 
 interface NavbarProps {
   onOpenInquiry?: () => void;
@@ -66,11 +67,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             id="nav-brand-logo"
             className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#00E5FF] rounded-lg p-1"
           >
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-[#00E5FF] to-[#7C3AED] text-white font-bold text-xl shadow-[0_0_15px_rgba(0,229,255,0.25)] group-hover:shadow-[0_0_20px_rgba(0,229,255,0.4)] transition-all duration-300">
-              <span className="font-heading font-black">
-                {BRAND_INFO.initials}
-              </span>
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-[#00E5FF] animate-pulse border-2 border-[#070B14]" />
+            <div className="relative flex items-center justify-center">
+              <SukhenLogo
+                variant="mark"
+                className="w-11 h-11 transition-all duration-300 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(0,229,255,0.4)]"
+              />
+              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00E5FF] animate-pulse border-2 border-[#070B14]" />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">
@@ -80,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                 <Sparkles className="w-3.5 h-3.5 text-[#00E5FF] opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <span className="text-[10px] text-[#A8B0C0] font-mono tracking-widest uppercase">
-                Creative Digital Studio
+                GRAPHIC DESIGNER • STUDIO
               </span>
             </div>
           </a>

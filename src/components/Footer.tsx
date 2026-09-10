@@ -1,6 +1,7 @@
 import React from 'react';
 import { MessageCircle, Sparkles, ArrowUp, Mail, Phone } from 'lucide-react';
 import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
+import { SukhenLogo } from './SukhenLogo';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -36,17 +37,16 @@ export const Footer: React.FC = () => {
           {/* Column 1: Brand Info (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-[#0D1424] to-[#131E36] border border-cyan-400/30">
-                <span className="font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 text-base">
-                  {BRAND_INFO.initials}
-                </span>
-              </div>
+              <SukhenLogo
+                variant="mark"
+                className="w-12 h-12 drop-shadow-[0_0_15px_rgba(0,229,255,0.35)]"
+              />
               <div className="flex flex-col">
                 <span className="font-heading font-black text-lg text-white tracking-wide uppercase">
                   {BRAND_INFO.name}
                 </span>
-                <span className="text-[10px] text-cyan-400 font-mono uppercase">
-                  {BRAND_INFO.taglineSecondary}
+                <span className="text-[10px] text-[#00E5FF] font-mono uppercase tracking-widest">
+                  GRAPHIC DESIGNER • DIGITAL STUDIO
                 </span>
               </div>
             </div>

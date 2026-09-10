@@ -379,3 +379,211 @@
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7),
               0 0 25px rgba(0, 229, 255, 0.15);
 }
+
+/* ========================================================
+   SUKHEN LOGO DYNAMIC ANIMATIONS
+   ======================================================== */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse-slow {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes logo-halo-pulse {
+  0%, 100% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.35));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 22px rgba(0, 229, 255, 0.7)) drop-shadow(0 0 35px rgba(124, 58, 237, 0.4));
+  }
+}
+
+@keyframes sparkle-flash {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes pixel-twinkle {
+  0%, 100% {
+    opacity: 0.7;
+    filter: brightness(0.9);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.35) drop-shadow(0 0 6px currentColor);
+  }
+}
+
+@keyframes flame-breathe {
+  0%, 100% {
+    transform: scale(0.95);
+    filter: drop-shadow(0 0 4px #FF5722);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px #FF1744) drop-shadow(0 0 18px #FF9100);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 16s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin-reverse-slow 22s linear infinite;
+}
+
+.animate-logo-halo {
+  animation: logo-halo-pulse 4s ease-in-out infinite;
+}
+
+.animate-sparkle-flash {
+  animation: sparkle-flash 2.5s ease-in-out infinite;
+}
+
+.animate-pixel-1 {
+  animation: pixel-twinkle 2s ease-in-out infinite;
+}
+
+.animate-pixel-2 {
+  animation: pixel-twinkle 2s ease-in-out 0.4s infinite;
+}
+
+.animate-pixel-3 {
+  animation: pixel-twinkle 2s ease-in-out 0.8s infinite;
+}
+
+.animate-pixel-4 {
+  animation: pixel-twinkle 2s ease-in-out 1.2s infinite;
+}
+
+.animate-pixel-5 {
+  animation: pixel-twinkle 2s ease-in-out 1.6s infinite;
+}
+
+.animate-flame-breathe {
+  animation: flame-breathe 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+/* ========================================================
+   CINEMATIC CREATIVE ANIMATIONS & FLOATING ELEMENTS
+   ======================================================== */
+@keyframes floating-element-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes floating-element-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(14px) rotate(-4deg);
+  }
+}
+
+@keyframes floating-element-3 {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.04);
+  }
+}
+
+@keyframes laser-sweep {
+  0% {
+    transform: translateX(-150%) rotate(25deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(250%) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@keyframes border-glow-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rec-dot-blink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 10px #FF2A5F;
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.85);
+    box-shadow: none;
+  }
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-80px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.animate-float-1 {
+  animation: floating-element-1 5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floating-element-2 6.5s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floating-element-3 4.5s ease-in-out infinite;
+}
+
+.animate-rec-blink {
+  animation: rec-dot-blink 1.4s ease-in-out infinite;
+}
+
+.animate-border-flow {
+  background-size: 250% 250%;
+  animation: border-glow-flow 5s ease infinite;
+}

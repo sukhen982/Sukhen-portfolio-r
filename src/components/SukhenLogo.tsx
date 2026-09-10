@@ -4,11 +4,13 @@ interface SukhenLogoProps {
   className?: string;
   variant?: 'mark' | 'full';
   size?: number | string;
+  animated?: boolean;
 }
 
 export const SukhenLogo: React.FC<SukhenLogoProps> = ({
   className = 'w-10 h-10',
   variant = 'mark',
+  animated = true,
 }) => {
   if (variant === 'mark') {
     return (
@@ -16,7 +18,7 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
         viewBox="0 0 500 500"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className={className}
+        className={`select-none ${className} ${animated ? 'group/logo' : ''}`}
         aria-label="Sukhen Sarkar Graphic Designer Logo"
       >
         <defs>
@@ -60,14 +62,38 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
           </linearGradient>
 
           {/* Outer Glow Filter */}
-          <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+          <filter id="glowEffect" x="-25%" y="-25%" width="150%" height="150%">
             <feGaussianBlur stdDeviation="8" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
+
+          <filter id="intenseGlow" x="-35%" y="-35%" width="170%" height="170%">
+            <feGaussianBlur stdDeviation="12" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+          </filter>
+
+          {/* Internal Glowing Core Aura */}
+          <radialGradient id="coreAuraGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.25" />
+            <stop offset="45%" stopColor="#7C3AED" stopOpacity="0.12" />
+            <stop offset="100%" stopColor="#05070D" stopOpacity="0" />
+          </radialGradient>
         </defs>
 
         {/* Outer Dark Circular Base */}
         <circle cx="250" cy="250" r="236" fill="#05070D" />
+
+        {/* Internal Pulsing Radial Aura */}
+        {animated && (
+          <circle
+            cx="250"
+            cy="250"
+            r="220"
+            fill="url(#coreAuraGrad)"
+            className="animate-pulse"
+            style={{ animationDuration: '4s' }}
+          />
+        )}
 
         {/* Outer Multi-color Glowing Halo Ring */}
         <circle
@@ -77,11 +103,40 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
           stroke="url(#ringGrad)"
           strokeWidth="11"
           filter="url(#glowEffect)"
-          className="opacity-95"
+          className={`opacity-95 ${animated ? 'animate-logo-halo' : ''}`}
         />
+
+        {/* Animated Cyber Dashed Orbit Ring (Slow Clockwise Spin) */}
+        {animated && (
+          <circle
+            cx="250"
+            cy="250"
+            r="244"
+            stroke="url(#ringGrad)"
+            strokeWidth="1.5"
+            strokeDasharray="10 16"
+            className="animate-spin-slow origin-[250px_250px] opacity-75"
+          />
+        )}
 
         {/* Thin Inner Ring Stroke */}
         <circle cx="250" cy="250" r="226" stroke="#00E5FF" strokeWidth="1" opacity="0.35" />
+
+        {/* Orbiting Photon Particles (Animated Satellites around the Halo) */}
+        {animated && (
+          <>
+            {/* Primary Cyan Particle */}
+            <g className="animate-spin-slow origin-[250px_250px]">
+              <circle cx="250" cy="16" r="6" fill="#00E5FF" filter="url(#glowEffect)" />
+              <circle cx="250" cy="16" r="2.8" fill="#FFFFFF" />
+            </g>
+            {/* Secondary Magenta Particle (Reverse Spin) */}
+            <g className="animate-spin-reverse-slow origin-[250px_250px]">
+              <circle cx="250" cy="484" r="5" fill="#EC4899" filter="url(#glowEffect)" opacity="0.85" />
+              <circle cx="250" cy="484" r="2.2" fill="#FFFFFF" />
+            </g>
+          </>
+        )}
 
         {/* Central Graphic Composition */}
         <g transform="translate(0, 0)">
@@ -92,7 +147,6 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
           />
 
           {/* 2. White Fountain Pen Nib - Center / Right Core */}
-          {/* Main Nib Body */}
           <path
             d="M 276 96 L 314 96 L 314 175 C 314 186 318 196 325 204 L 328 208 C 334 216 335 228 330 238 L 298 302 C 296 306 292 306 290 302 L 260 238 C 255 228 256 216 262 208 L 265 204 C 272 196 276 186 276 175 Z"
             fill="url(#nibGrad)"
@@ -109,18 +163,73 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
           <path d="M 294 229 L 294 303" stroke="#0A0F1D" strokeWidth="2.5" strokeLinecap="round" />
           <path d="M 294 175 L 294 220" stroke="#94A3B8" strokeWidth="1.5" />
 
-          {/* 3. 2x2 Digital Pixel Anchor Squares (Top-Right) */}
+          {/* Nib Tip Ink Sparkle Animation */}
+          {animated && (
+            <g className="origin-[294px_303px]">
+              <circle
+                cx="294"
+                cy="303"
+                r="5"
+                fill="#00E5FF"
+                filter="url(#glowEffect)"
+                className="animate-sparkle-flash origin-[294px_303px]"
+              />
+              <circle cx="294" cy="303" r="2" fill="#FFFFFF" />
+            </g>
+          )}
+
+          {/* 3. 2x2 Digital Pixel Anchor Squares (Top-Right) with Staggered Twinkle */}
           <g transform="translate(332, 92)">
             {/* Top-Left: Cyan */}
-            <rect x="0" y="0" width="18" height="18" rx="3" fill="#00E5FF" />
+            <rect
+              x="0"
+              y="0"
+              width="18"
+              height="18"
+              rx="3"
+              fill="#00E5FF"
+              className={animated ? 'animate-pixel-1' : ''}
+            />
             {/* Top-Right: Royal Blue */}
-            <rect x="22" y="0" width="18" height="18" rx="3" fill="#0066FF" />
+            <rect
+              x="22"
+              y="0"
+              width="18"
+              height="18"
+              rx="3"
+              fill="#0066FF"
+              className={animated ? 'animate-pixel-2' : ''}
+            />
             {/* Bottom-Left: Magenta */}
-            <rect x="0" y="22" width="18" height="18" rx="3" fill="#EC4899" />
+            <rect
+              x="0"
+              y="22"
+              width="18"
+              height="18"
+              rx="3"
+              fill="#EC4899"
+              className={animated ? 'animate-pixel-3' : ''}
+            />
             {/* Bottom-Right: Lime Green */}
-            <rect x="22" y="22" width="18" height="18" rx="3" fill="#22C55E" />
+            <rect
+              x="22"
+              y="22"
+              width="18"
+              height="18"
+              rx="3"
+              fill="#22C55E"
+              className={animated ? 'animate-pixel-4' : ''}
+            />
             {/* Extra mini pixel for dynamic touch */}
-            <rect x="44" y="22" width="14" height="14" rx="2" fill="#F59E0B" opacity="0.9" />
+            <rect
+              x="44"
+              y="22"
+              width="14"
+              height="14"
+              rx="2"
+              fill="#F59E0B"
+              className={animated ? 'animate-pixel-5' : ''}
+            />
           </g>
 
           {/* 4. Dynamic Artist Paint Brush Swoosh / Ribbon */}
@@ -129,9 +238,8 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
             fill="url(#brushRibbonGrad)"
           />
 
-          {/* 5. Paintbrush Ferrule & Bristle Flame Tip */}
-          {/* Ferrule (brush metal band) */}
-          <g transform="translate(390, 205) rotate(45)">
+          {/* 5. Paintbrush Ferrule & Bristle Flame Tip with Breathing Animation */}
+          <g transform="translate(390, 205) rotate(45)" className={animated ? 'animate-flame-breathe origin-[390px_205px]' : ''}>
             <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#E2E8F0" stroke="#94A3B8" strokeWidth="1.5" />
             {/* Bristle Head with flame paint tip */}
             <path
@@ -155,7 +263,7 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
       viewBox="0 0 600 600"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={`select-none ${className} ${animated ? 'group/logo' : ''}`}
       aria-label="Sukhen Sarkar Graphic Designer Official Logo"
     >
       <defs>
@@ -199,22 +307,53 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
           <stop offset="100%" stopColor="#FF1744" />
         </linearGradient>
 
-        {/* Golden Text Gradient */}
+        {/* Golden Liquid Shimmer Text Gradient (Animated) */}
         <linearGradient id="goldTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#FFB300" />
-          <stop offset="50%" stopColor="#FFC107" />
-          <stop offset="100%" stopColor="#FFA000" />
+          <stop offset="0%" stopColor="#FFB300">
+            {animated && (
+              <animate attributeName="stop-color" values="#FFB300;#FFF7ED;#FFB300" dur="4s" repeatCount="indefinite" />
+            )}
+          </stop>
+          <stop offset="50%" stopColor="#FACC15">
+            {animated && (
+              <animate attributeName="stop-color" values="#FACC15;#FFE082;#FACC15" dur="4s" repeatCount="indefinite" />
+            )}
+          </stop>
+          <stop offset="100%" stopColor="#FFA000">
+            {animated && (
+              <animate attributeName="stop-color" values="#FFA000;#FFF7ED;#FFA000" dur="4s" repeatCount="indefinite" />
+            )}
+          </stop>
         </linearGradient>
 
-        {/* Glow Filter */}
-        <filter id="fullGlow" x="-15%" y="-15%" width="130%" height="130%">
+        {/* Glow Filters */}
+        <filter id="fullGlow" x="-20%" y="-20%" width="140%" height="140%">
           <feGaussianBlur stdDeviation="7" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
+
+        {/* Full Badge Core Aura */}
+        <radialGradient id="fullCoreAuraGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#00E5FF" stopOpacity="0.22" />
+          <stop offset="45%" stopColor="#8B5CF6" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#05070D" stopOpacity="0" />
+        </radialGradient>
       </defs>
 
       {/* Dark Outer Shield Circle */}
       <circle cx="300" cy="300" r="286" fill="#05070D" />
+
+      {/* Internal Pulsing Radial Aura */}
+      {animated && (
+        <circle
+          cx="300"
+          cy="300"
+          r="265"
+          fill="url(#fullCoreAuraGrad)"
+          className="animate-pulse"
+          style={{ animationDuration: '4.5s' }}
+        />
+      )}
 
       {/* Outer Glowing Neon Ring */}
       <circle
@@ -224,10 +363,38 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
         stroke="url(#fullRingGrad)"
         strokeWidth="11"
         filter="url(#fullGlow)"
+        className={animated ? 'animate-logo-halo' : ''}
       />
+
+      {/* Animated Cyber Dashed Orbit Ring */}
+      {animated && (
+        <circle
+          cx="300"
+          cy="300"
+          r="293"
+          stroke="url(#fullRingGrad)"
+          strokeWidth="1.5"
+          strokeDasharray="12 18"
+          className="animate-spin-slow origin-[300px_300px] opacity-75"
+        />
+      )}
 
       {/* Inner Accent Hairline */}
       <circle cx="300" cy="300" r="273" stroke="#00E5FF" strokeWidth="1" opacity="0.3" />
+
+      {/* Orbiting Photon Particles (Full Badge) */}
+      {animated && (
+        <>
+          <g className="animate-spin-slow origin-[300px_300px]">
+            <circle cx="300" cy="18" r="7" fill="#00E5FF" filter="url(#fullGlow)" />
+            <circle cx="300" cy="18" r="3.2" fill="#FFFFFF" />
+          </g>
+          <g className="animate-spin-reverse-slow origin-[300px_300px]">
+            <circle cx="300" cy="582" r="6" fill="#EC4899" filter="url(#fullGlow)" opacity="0.85" />
+            <circle cx="300" cy="582" r="2.8" fill="#FFFFFF" />
+          </g>
+        </>
+      )}
 
       {/* ======================================================== */}
       {/* 1. CENTRAL "S" EMBLEM + PEN NIB + PIXELS + BRUSH SWOOSH */}
@@ -256,13 +423,68 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
         <path d="M 302 220 L 302 288" stroke="#0A0F1D" strokeWidth="2.5" strokeLinecap="round" />
         <path d="M 302 165 L 302 211" stroke="#94A3B8" strokeWidth="1.5" />
 
-        {/* 2x2 Digital Pixel Squares */}
+        {/* Nib Tip Sparkle */}
+        {animated && (
+          <g className="origin-[302px_288px]">
+            <circle
+              cx="302"
+              cy="288"
+              r="5"
+              fill="#00E5FF"
+              filter="url(#fullGlow)"
+              className="animate-sparkle-flash origin-[302px_288px]"
+            />
+            <circle cx="302" cy="288" r="2.2" fill="#FFFFFF" />
+          </g>
+        )}
+
+        {/* 2x2 Digital Pixel Squares with Staggered Twinkle */}
         <g transform="translate(340, 88)">
-          <rect x="0" y="0" width="18" height="18" rx="3" fill="#00E5FF" />
-          <rect x="22" y="0" width="18" height="18" rx="3" fill="#0066FF" />
-          <rect x="0" y="22" width="18" height="18" rx="3" fill="#EC4899" />
-          <rect x="22" y="22" width="18" height="18" rx="3" fill="#22C55E" />
-          <rect x="44" y="22" width="13" height="13" rx="2" fill="#F59E0B" opacity="0.9" />
+          <rect
+            x="0"
+            y="0"
+            width="18"
+            height="18"
+            rx="3"
+            fill="#00E5FF"
+            className={animated ? 'animate-pixel-1' : ''}
+          />
+          <rect
+            x="22"
+            y="0"
+            width="18"
+            height="18"
+            rx="3"
+            fill="#0066FF"
+            className={animated ? 'animate-pixel-2' : ''}
+          />
+          <rect
+            x="0"
+            y="22"
+            width="18"
+            height="18"
+            rx="3"
+            fill="#EC4899"
+            className={animated ? 'animate-pixel-3' : ''}
+          />
+          <rect
+            x="22"
+            y="22"
+            width="18"
+            height="18"
+            rx="3"
+            fill="#22C55E"
+            className={animated ? 'animate-pixel-4' : ''}
+          />
+          <rect
+            x="44"
+            y="22"
+            width="13"
+            height="13"
+            rx="2"
+            fill="#F59E0B"
+            className={animated ? 'animate-pixel-5' : ''}
+          />
         </g>
 
         {/* Dynamic Rainbow Paintbrush Swoosh */}
@@ -272,7 +494,7 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
         />
 
         {/* Paintbrush Metal Ferrule & Flame Tip */}
-        <g transform="translate(393, 202) rotate(45)">
+        <g transform="translate(393, 202) rotate(45)" className={animated ? 'animate-flame-breathe origin-[393px_202px]' : ''}>
           <rect x="-8" y="-4" width="16" height="8" rx="2" fill="#E2E8F0" stroke="#94A3B8" strokeWidth="1.5" />
           <path d="M -8 -4 C -10 -15 -4 -28 0 -34 C 4 -28 10 -15 8 -4 Z" fill="url(#fullTipGrad)" />
           <path d="M -4 -4 C -5 -12 -2 -22 0 -26 C 2 -22 5 -12 4 -4 Z" fill="#FDE047" />
@@ -320,8 +542,12 @@ export const SukhenLogo: React.FC<SukhenLogoProps> = ({
       <g transform="translate(300, 452)">
         {/* Left Golden Line */}
         <line x1="-150" y1="0" x2="-20" y2="0" stroke="#F59E0B" strokeWidth="1.5" opacity="0.85" />
-        {/* Center Diamond */}
-        <polygon points="0,-4 4,0 0,4 -4,0" fill="#F59E0B" />
+        {/* Center Diamond with Sparkle Animation */}
+        <polygon
+          points="0,-5 5,0 0,5 -5,0"
+          fill="#F59E0B"
+          className={animated ? 'animate-sparkle-flash origin-[0px_0px]' : ''}
+        />
         {/* Right Golden Line */}
         <line x1="20" y1="0" x2="150" y2="0" stroke="#F59E0B" strokeWidth="1.5" opacity="0.85" />
       </g>

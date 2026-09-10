@@ -16,6 +16,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
 import { SukhenLogo } from './SukhenLogo';
 import { WebsiteMakingBadgeLogo } from './WebTechLogos';
+import { FloatingCreativeBadges, AmbientSparkles } from './FloatingCreativeBadges';
 
 interface HeroProps {
   onOpenInquiry: () => void;
@@ -50,6 +51,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
       <div className="absolute top-1/3 -right-20 w-[500px] h-[500px] bg-[#00E5FF]/15 rounded-full blur-[150px] pointer-events-none animate-pulse" style={{ animationDuration: '9s' }} />
       <div className="absolute bottom-10 left-1/3 w-[450px] h-[450px] bg-[#00E676]/10 rounded-full blur-[130px] pointer-events-none" />
       <div className="absolute top-20 right-1/4 w-[380px] h-[380px] bg-[#8B5CF6]/15 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Floating Ambient Sparkles */}
+      <AmbientSparkles />
 
       {/* Subtle Luminous RGB Horizontal Accent Line */}
       <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-rgb-line opacity-75" />
@@ -221,6 +225,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
 
           {/* Right Column: Dynamic RGB Chromatic Multi-Service Grid */}
           <div className="lg:col-span-5 relative">
+            {/* Floating Software & Creative Tech Badges */}
+            <FloatingCreativeBadges />
+
             <div className="grid grid-cols-2 gap-4">
               
               {/* Card 1: Col-span-2 Featured Video Service [RED CHANNEL] */}

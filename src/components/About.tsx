@@ -73,10 +73,15 @@ export const About: React.FC<AboutProps> = ({ onOpenInquiry }) => {
               <div className="relative rounded-2xl bg-[#0D1424] border border-cyan-500/30 p-6 shadow-2xl overflow-hidden group">
                 
                 {/* Official Brand Logo Emblem */}
-                <div className="relative aspect-square rounded-xl overflow-hidden bg-[#05070D] border border-cyan-500/20 mb-5 p-3 flex items-center justify-center">
+                <div className="relative aspect-square rounded-xl overflow-hidden bg-[#05070D] border border-cyan-500/30 mb-5 p-4 flex items-center justify-center shadow-[inset_0_0_20px_rgba(0,0,0,0.8)]">
+                  {/* Laser Light Sweep Reflection */}
+                  <div className="absolute inset-0 pointer-events-none w-full h-full overflow-hidden">
+                    <div className="w-1/2 h-full bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent -skew-x-12 animate-[laser-sweep_5s_ease-in-out_infinite]" />
+                  </div>
+
                   <SukhenLogo
                     variant="full"
-                    className="w-full h-full max-w-[280px] drop-shadow-[0_0_25px_rgba(0,229,255,0.3)] transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full max-w-[280px] drop-shadow-[0_0_25px_rgba(0,229,255,0.35)] transition-transform duration-500 group-hover:scale-105 group-hover:rotate-1"
                   />
                   
                   {/* Status Overlay with Pulse */}

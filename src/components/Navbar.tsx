@@ -73,11 +73,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
             className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#00E5FF] rounded-lg p-1"
           >
             <div className="relative flex items-center justify-center">
+              {/* Luminous Pulsing Glow Aura behind logo */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#00E5FF]/30 via-[#7C3AED]/25 to-[#00E676]/30 blur-md group-hover:scale-125 transition-transform duration-500 opacity-80 animate-pulse" />
               <SukhenLogo
                 variant="mark"
-                className="w-11 h-11 transition-all duration-300 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(0,229,255,0.4)]"
+                className="relative w-11 h-11 transition-all duration-300 group-hover:scale-110 drop-shadow-[0_0_16px_rgba(0,229,255,0.5)]"
               />
-              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00E5FF] animate-pulse border-2 border-[#070B14]" />
+              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00E5FF] animate-ping opacity-75" />
+              <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#00E5FF] border-2 border-[#070B14]" />
             </div>
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5">

@@ -1,10 +1,18 @@
 import React, { useState } from 'react';
 import { MessageCircle, X, Sparkles, Send } from 'lucide-react';
 import { BRAND_INFO, getWhatsAppUrl } from '../data/siteContent';
+import { playPopSound } from '../utils/audio';
 
 export const FloatingWhatsApp: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [customMsg, setCustomMsg] = useState('');
+
+  const handleToggle = () => {
+    if (!isOpen) {
+      playPopSound();
+    }
+    setIsOpen((prev) => !prev);
+  };
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,6 +65,7 @@ export const FloatingWhatsApp: React.FC = () => {
           {/* Quick Pre-filled Action Suggestions */}
           <div className="flex flex-wrap gap-1.5 mb-3">
             {[
+              'Need Website Making',
               'Need Graphic Design',
               'Need Ad Video',
               'Menu Card Inquiry',
@@ -65,8 +74,11 @@ export const FloatingWhatsApp: React.FC = () => {
               <button
                 key={tag}
                 type="button"
-                onClick={() => setCustomMsg(`Hello Sukhen Sarkar, I ${tag.toLowerCase()}. Please share details.`)}
-                className="text-[10px] font-mono px-2 py-1 rounded bg-white/5 hover:bg-emerald-500/20 border border-gray-800 hover:border-emerald-500/30 text-gray-300 hover:text-emerald-300 transition-colors"
+                onClick={() => {
+                  playPopSound();
+                  setCustomMsg(`Hello Sukhen Sarkar, I ${tag.toLowerCase()}. Please share details.`);
+                }}
+                className="text-[10px] font-mono px-2 py-1 rounded bg-white/5 hover:bg-emerald-500/20 border border-gray-800 hover:border-emerald-500/30 text-gray-300 hover:text-emerald-300 transition-colors cursor-pointer"
               >
                 {tag}
               </button>
@@ -95,7 +107,7 @@ export const FloatingWhatsApp: React.FC = () => {
 
       {/* Floating Action Beacon Button */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={handleToggle}
         id="floating-whatsapp-btn"
         className="group relative flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-bold text-sm shadow-[0_0_25px_rgba(16,185,129,0.5)] hover:shadow-[0_0_35px_rgba(16,185,129,0.8)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
         aria-label="Chat with Sukhen Sarkar on WhatsApp"

@@ -11,6 +11,7 @@ import {
   User,
   Phone,
 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { getWhatsAppUrl } from '../data/siteContent';
 
 const SERVICES_LIST = [
@@ -96,10 +97,16 @@ ${formData.referenceNotes ? `• *Reference Note:* ${formData.referenceNotes}` :
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
+        {/* Section Header with Viewport Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3 shadow-[0_0_15px_rgba(0,229,255,0.15)]">
+            <Sparkles className="w-3.5 h-3.5 animate-spin-slow" />
             <span>START A NEW COLLABORATION</span>
           </div>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
@@ -108,15 +115,21 @@ ${formData.referenceNotes ? `• *Reference Note:* ${formData.referenceNotes}` :
           <p className="mt-3 text-sm sm:text-base text-gray-300">
             Tell me about your project requirements and receive a personalized response promptly.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Form Container */}
-        <div className="relative rounded-3xl bg-[#0D1424] border border-cyan-500/30 p-6 sm:p-10 shadow-2xl">
+        {/* Form Container with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-40px' }}
+          transition={{ duration: 0.55 }}
+          className="relative rounded-3xl bg-[#0D1424] border border-cyan-500/30 p-6 sm:p-10 shadow-2xl"
+        >
           
           {isSubmitted ? (
             /* Submission Success State */
             <div className="text-center py-10 space-y-6 animate-in fade-in zoom-in-95 duration-300">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto">
+              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto animate-bounce">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
 
@@ -139,9 +152,9 @@ ${formData.referenceNotes ? `• *Reference Note:* ${formData.referenceNotes}` :
                   href={getWhatsAppUrl(formattedWhatsAppMsg)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-rgbk-primary w-full py-4 rounded-xl font-bold text-sm tracking-wide gap-3 cursor-pointer shadow-xl inline-flex items-center justify-center"
+                  className="btn-rgbk-primary btn-anim-whatsapp group w-full py-4 rounded-xl font-bold text-sm tracking-wide gap-3 cursor-pointer shadow-xl inline-flex items-center justify-center hover:scale-105"
                 >
-                  <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
+                  <MessageCircle className="w-5 h-5 fill-[#070B14]/20 group-hover:rotate-12 group-hover:scale-125 transition-transform" />
                   <span>CONTACT DIRECTLY ON WHATSAPP</span>
                 </a>
 
@@ -300,14 +313,14 @@ ${formData.referenceNotes ? `• *Reference Note:* ${formData.referenceNotes}` :
                 </div>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button with Interactive RGBK Animation */}
               <div className="pt-2">
                 <button
                   type="submit"
                   id="submit-inquiry-btn"
-                  className="btn-rgbk-primary w-full py-4 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer shadow-xl inline-flex items-center justify-center"
+                  className="btn-rgbk-primary btn-anim-whatsapp group w-full py-4 rounded-xl font-bold text-sm tracking-wide gap-2.5 cursor-pointer shadow-2xl inline-flex items-center justify-center hover:scale-[1.01] active:scale-[0.99] transition-all"
                 >
-                  <Send className="w-4 h-4 text-[#070B14]" />
+                  <Send className="w-4 h-4 text-[#070B14] group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform" />
                   <span>SEND PROJECT REQUEST</span>
                 </button>
               </div>
@@ -315,7 +328,7 @@ ${formData.referenceNotes ? `• *Reference Note:* ${formData.referenceNotes}` :
             </form>
           )}
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );

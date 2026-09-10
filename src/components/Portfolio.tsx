@@ -33,10 +33,16 @@ export const Portfolio: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
+        {/* Section Header with Viewport Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55 }}
+          className="text-center max-w-3xl mx-auto mb-12"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3 shadow-[0_0_15px_rgba(0,229,255,0.15)]">
+            <Sparkles className="w-3.5 h-3.5 animate-spin-slow" />
             <span>PORTFOLIO SHOWCASE</span>
           </div>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
@@ -45,27 +51,33 @@ export const Portfolio: React.FC = () => {
           <p className="mt-3 text-base sm:text-lg text-gray-300 font-medium">
             Explore selected design and creative projects.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Category Filter Tabs in RGBK Combined Style */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
+        {/* Category Filter Tabs in RGBK Combined Style with Tactile Spring Transitions */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.45 }}
+          className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar"
+        >
           {PORTFOLIO_CATEGORIES.map((category) => {
             const isActive = activeCategory === category;
             return (
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-200 cursor-pointer ${
+                className={`whitespace-nowrap px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 cursor-pointer active:scale-95 ${
                   isActive
                     ? 'btn-rgbk-pill-active scale-105'
-                    : 'bg-[#070B14] text-gray-400 hover:text-white border border-gray-800 hover:border-[#00E5FF]/40'
+                    : 'bg-[#070B14] text-gray-400 hover:text-white border border-gray-800 hover:border-[#00E5FF]/50 hover:scale-105'
                 }`}
               >
                 {category}
               </button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Portfolio Grid with Motion */}
         <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -156,21 +168,27 @@ export const Portfolio: React.FC = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Portfolio Footer CTA */}
-        <div className="mt-14 text-center">
-          <p className="text-sm text-gray-400 mb-3">
+        {/* Portfolio Footer CTA with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-14 text-center"
+        >
+          <p className="text-sm text-gray-400 mb-4">
             Want custom graphic designs or advertisement videos crafted for your business?
           </p>
           <a
             href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to discuss a custom design or video project from your portfolio.')}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-rgbk-primary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer shadow-lg inline-flex items-center"
+            className="btn-rgbk-primary btn-anim-whatsapp group px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2.5 cursor-pointer shadow-xl inline-flex items-center"
           >
-            <MessageCircle className="w-4 h-4 fill-[#070B14]/20" />
+            <MessageCircle className="w-4 h-4 fill-[#070B14]/20 group-hover:rotate-12 group-hover:scale-125 transition-transform" />
             <span>DISCUSS YOUR PROJECT ON WHATSAPP</span>
           </a>
-        </div>
+        </motion.div>
 
       </div>
 

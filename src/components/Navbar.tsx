@@ -118,9 +118,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
               target="_blank"
               rel="noopener noreferrer"
               id="nav-whatsapp-btn"
-              className="btn-rgbk-secondary px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 active:scale-95 cursor-pointer"
+              className="btn-rgbk-secondary btn-anim-whatsapp group px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer shadow-md"
             >
-              <MessageCircle className="w-3.5 h-3.5 text-[#00E676] mr-1.5" />
+              <MessageCircle className="w-3.5 h-3.5 text-[#00E676] mr-1.5 group-hover:rotate-12 transition-transform" />
               <span className="text-white">WHATSAPP</span>
               <span className="ml-1.5 text-[10px] bg-black/60 border border-[#00E5FF]/40 px-1.5 py-0.5 rounded-full font-mono text-[#00E5FF]">
                 {BRAND_INFO.phone}
@@ -165,9 +165,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="btn-rgbk-primary w-full py-3 rounded-xl text-sm font-bold shadow-lg cursor-pointer"
+                className="btn-rgbk-primary btn-anim-whatsapp group w-full py-3 rounded-xl text-sm font-bold shadow-lg cursor-pointer flex items-center justify-center hover:scale-102 transition-transform"
               >
-                <MessageCircle className="w-5 h-5 mr-1.5" />
+                <MessageCircle className="w-5 h-5 mr-1.5 group-hover:rotate-12 transition-transform" />
                 <span>Chat on WhatsApp ({BRAND_INFO.phone})</span>
               </a>
 
@@ -177,7 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenInquiry }) => {
                     setMobileMenuOpen(false);
                     onOpenInquiry();
                   }}
-                  className="btn-rgbk-secondary w-full py-2.5 rounded-xl text-sm font-semibold cursor-pointer"
+                  className="btn-rgbk-secondary w-full py-2.5 rounded-xl text-sm font-semibold cursor-pointer hover:scale-102 transition-transform"
                 >
                   Request a Project Quote
                 </button>

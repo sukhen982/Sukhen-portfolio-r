@@ -1,5 +1,6 @@
 import React from 'react';
 import { Palette, Globe, Film, Rocket, ArrowRight, MessageCircle, Sparkles } from 'lucide-react';
+import { motion } from 'motion/react';
 import { FEATURED_SERVICES, getWhatsAppUrl } from '../data/siteContent';
 
 interface FeaturedServicesProps {
@@ -95,11 +96,17 @@ export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ onSelectServ
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Heading with RGB Badge */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        {/* Section Heading with RGB Badge and Motion Reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55 }}
+          className="text-center max-w-2xl mx-auto mb-12"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0D1424] border border-white/10 text-xs font-mono mb-3 shadow-md">
             <div className="flex items-center gap-1">
-              <span className="w-2 h-2 rounded-full bg-[#FF2A5F]" />
+              <span className="w-2 h-2 rounded-full bg-[#FF2A5F] animate-ping" />
               <span className="w-2 h-2 rounded-full bg-[#00E676]" />
               <span className="w-2 h-2 rounded-full bg-[#00E5FF]" />
               <span className="w-2 h-2 rounded-full bg-[#8B5CF6]" />
@@ -112,34 +119,39 @@ export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ onSelectServ
           <p className="text-gray-400 text-sm mt-2">
             Four powerhouse specializations driving business growth, high-converting websites, and standout visual presence.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 4 Major Services Cards in RGBV Colors */}
+        {/* 4 Major Services Cards in RGBV Colors with Staggered Motion */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURED_SERVICES.map((feat, idx) => {
             const config = RGB_CONFIG[feat.id] || RGB_CONFIG['feat-design'];
             return (
-              <div
+              <motion.div
                 key={feat.id}
-                className={`relative rounded-2xl bg-gradient-to-b from-[#0D1424] to-[#070B14] border border-white/10 ${config.borderColor} ${config.glowShadow} p-7 transition-all duration-300 group hover:-translate-y-1.5 flex flex-col justify-between`}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: idx * 0.12 }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className={`relative rounded-2xl bg-gradient-to-b from-[#0D1424] to-[#070B14] border border-white/10 ${config.borderColor} ${config.glowShadow} p-7 transition-all duration-300 group flex flex-col justify-between`}
               >
                 {/* Top Row: Icon & RGB Channel Badge */}
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className={`w-14 h-14 rounded-xl ${config.iconBg} flex items-center justify-center ${config.iconText} group-hover:scale-105 transition-all duration-300 shadow-md`}>
+                    <div className={`w-14 h-14 rounded-xl ${config.iconBg} flex items-center justify-center ${config.iconText} group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md`}>
                       {getIcon(feat.icon)}
                     </div>
                     
-                    {/* RGB Channel Badge */}
+                    {/* RGB Channel Badge with Pulse */}
                     <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border ${config.badgeBg}`}>
-                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: config.dotColor }} />
+                      <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: config.dotColor }} />
                       <span className={`text-[10px] font-mono font-bold ${config.badgeText}`}>
                         {config.channel}
                       </span>
                     </div>
                   </div>
 
-                  <h3 className="font-heading font-black text-2xl text-white tracking-wide mb-1">
+                  <h3 className="font-heading font-black text-2xl text-white tracking-wide mb-1 group-hover:text-cyan-200 transition-colors">
                     {feat.title}
                   </h3>
                   <h4 className="text-xs font-mono font-semibold mb-3" style={{ color: config.dotColor }}>
@@ -162,17 +174,17 @@ export const FeaturedServices: React.FC<FeaturedServicesProps> = ({ onSelectServ
                   </div>
                 </div>
 
-                {/* Bottom Action Button (WhatsApp) */}
+                {/* Bottom Action Button (WhatsApp with bouncy icon animation) */}
                 <a
                   href={getWhatsAppUrl(`Hello Sukhen Sarkar, I would like to start a project related to ${feat.title} (${feat.subtitle}).`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-rgbk-secondary w-full py-3 rounded-xl font-bold text-xs gap-2 cursor-pointer shadow-md hover:filter hover:brightness-110"
+                  className="btn-rgbk-secondary btn-anim-whatsapp group/btn w-full py-3 rounded-xl font-bold text-xs gap-2 cursor-pointer shadow-md hover:filter hover:brightness-110"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#00E676]" />
+                  <MessageCircle className="w-4 h-4 text-[#00E676] group-hover/btn:rotate-12 group-hover/btn:scale-125 transition-transform" />
                   <span>START YOUR PROJECT</span>
                 </a>
-              </div>
+              </motion.div>
             );
           })}
         </div>

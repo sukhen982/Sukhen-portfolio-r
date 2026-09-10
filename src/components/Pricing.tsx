@@ -8,6 +8,7 @@ import {
   Calculator,
   ArrowRight,
 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { getWhatsAppUrl } from '../data/siteContent';
 
 interface PricingProps {
@@ -36,10 +37,16 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
     <section id="pricing" className="relative py-24 bg-[#070B14] border-t border-cyan-500/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3">
-            <Calculator className="w-3.5 h-3.5" />
+        {/* Section Header with Viewport Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3 shadow-[0_0_15px_rgba(0,229,255,0.15)]">
+            <Calculator className="w-3.5 h-3.5 animate-pulse" />
             <span>TRANSPARENT PROJECT ESTIMATION</span>
           </div>
           <h2 className="font-heading font-black text-3xl sm:text-5xl text-white tracking-tight">
@@ -48,12 +55,18 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
           <p className="mt-3 text-base sm:text-lg text-gray-300 font-medium">
             Fair, customized quotations based precisely on your unique scope and deliverables.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
-          {/* Main Custom Project Card (As instructed in Prompt) */}
-          <div className="lg:col-span-7 rounded-2xl bg-gradient-to-b from-[#0D1424] to-[#070B14] border border-cyan-500/30 p-8 sm:p-10 shadow-2xl flex flex-col justify-between">
+          {/* Main Custom Project Card with Motion */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55 }}
+            className="lg:col-span-7 rounded-2xl bg-gradient-to-b from-[#0D1424] to-[#070B14] border border-cyan-500/30 p-8 sm:p-10 shadow-2xl flex flex-col justify-between"
+          >
             <div>
               <div className="flex items-center justify-between pb-4 border-b border-gray-800 mb-6">
                 <span className="text-xs font-mono font-bold text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
@@ -96,34 +109,40 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
               </div>
             </div>
 
-            {/* Buttons */}
+            {/* Buttons with Interactive RGBK Animations */}
             <div className="flex flex-col sm:flex-row gap-3.5 pt-2">
               <a
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to get a quote for a custom project.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 id="pricing-get-quote-whatsapp-btn"
-                className="flex-1 btn-rgbk-primary py-3.5 px-6 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer inline-flex items-center justify-center"
+                className="flex-1 btn-rgbk-primary btn-anim-whatsapp group py-3.5 px-6 rounded-xl font-bold text-sm tracking-wide gap-2 cursor-pointer inline-flex items-center justify-center shadow-xl hover:scale-105"
               >
-                <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
+                <MessageCircle className="w-5 h-5 fill-[#070B14]/20 group-hover:rotate-12 group-hover:scale-125 transition-transform" />
                 <span>GET A QUOTE ON WHATSAPP</span>
               </a>
 
               <button
                 onClick={onOpenInquiry}
-                className="btn-rgbk-secondary py-3.5 px-6 rounded-xl font-semibold text-sm gap-2 cursor-pointer inline-flex items-center justify-center"
+                className="btn-rgbk-secondary group py-3.5 px-6 rounded-xl font-semibold text-sm gap-2 cursor-pointer inline-flex items-center justify-center hover:scale-105"
               >
-                <FileSpreadsheet className="w-4 h-4 text-[#FF2A5F]" />
+                <FileSpreadsheet className="w-4 h-4 text-[#FF2A5F] group-hover:scale-125 transition-transform" />
                 <span>Fill Inquiry Form</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Quick Scope Helper */}
-          <div className="lg:col-span-5 rounded-2xl bg-[#0D1424] border border-gray-800 p-8 flex flex-col justify-between">
+          {/* Right Column: Quick Scope Helper with Motion */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55 }}
+            className="lg:col-span-5 rounded-2xl bg-[#0D1424] border border-gray-800 p-8 flex flex-col justify-between"
+          >
             <div>
               <div className="flex items-center gap-2 text-cyan-400 text-xs font-mono font-bold mb-4">
-                <Sparkles className="w-4 h-4" />
+                <Sparkles className="w-4 h-4 animate-spin-slow" />
                 <span>QUICK SCOPE INQUIRY BUILDER</span>
               </div>
 
@@ -162,8 +181,8 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
                       onClick={() => setTimeline(t)}
                       className={`px-2.5 py-2 rounded-lg text-[11px] font-mono text-center transition-all cursor-pointer ${
                         timeline === t
-                          ? 'btn-rgbk-pill-active font-bold'
-                          : 'bg-[#131E36] border border-gray-800 text-gray-400 hover:text-white'
+                          ? 'btn-rgbk-pill-active font-bold scale-102'
+                          : 'bg-[#131E36] border border-gray-800 text-gray-400 hover:text-white hover:border-[#00E5FF]/40'
                       }`}
                     >
                       {t}
@@ -181,13 +200,13 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenInquiry }) => {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full btn-rgbk-primary py-3.5 rounded-xl font-bold text-xs tracking-wide gap-2 cursor-pointer inline-flex items-center justify-center"
+                className="w-full btn-rgbk-primary btn-anim-whatsapp group py-3.5 rounded-xl font-bold text-xs tracking-wide gap-2 cursor-pointer inline-flex items-center justify-center shadow-lg hover:scale-105"
               >
                 <span>SEND THIS SCOPE TO WHATSAPP</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

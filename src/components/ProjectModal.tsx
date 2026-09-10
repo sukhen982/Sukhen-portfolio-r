@@ -100,9 +100,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ item, onClose }) => 
               href={getWhatsAppUrl(`Hello Sukhen Sarkar, I loved your portfolio project "${item.title}" (${item.category}). I would like to order a similar design for my business.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-rgbk-primary w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2.5 cursor-pointer inline-flex items-center justify-center"
+              className="btn-rgbk-primary btn-anim-whatsapp group w-full sm:w-auto px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide gap-2.5 cursor-pointer inline-flex items-center justify-center shadow-xl hover:scale-105 active:scale-95 transition-all"
             >
-              <MessageCircle className="w-5 h-5 fill-[#070B14]/20" />
+              <MessageCircle className="w-5 h-5 fill-[#070B14]/20 group-hover:rotate-12 transition-transform" />
               <span>Order Similar Design on WhatsApp</span>
             </a>
           </div>

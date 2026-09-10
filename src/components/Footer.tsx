@@ -122,9 +122,9 @@ export const Footer: React.FC = () => {
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to inquire about your services.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-rgbk-secondary px-3.5 py-2 rounded-xl text-xs font-mono font-bold gap-1.5 cursor-pointer inline-flex items-center"
+                className="btn-rgbk-secondary btn-anim-whatsapp group px-4 py-2.5 rounded-xl text-xs font-mono font-bold gap-2 cursor-pointer inline-flex items-center shadow-md hover:scale-105 transition-all"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-[#00E676]" />
+                <MessageCircle className="w-4 h-4 text-[#00E676] group-hover:rotate-12 transition-transform" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
@@ -144,10 +144,10 @@ export const Footer: React.FC = () => {
             </span>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-lg bg-[#0D1424] border border-cyan-500/20 text-gray-400 hover:text-cyan-400 hover:border-cyan-400 transition-colors cursor-pointer"
+              className="p-2.5 rounded-xl bg-[#0D1424] border border-cyan-500/20 text-gray-400 hover:text-cyan-400 hover:border-cyan-400 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(0,229,255,0.3)] transition-all cursor-pointer group"
               aria-label="Scroll to top"
             >
-              <ArrowUp className="w-4 h-4" />
+              <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
             </button>
           </div>
         </div>

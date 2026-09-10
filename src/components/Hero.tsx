@@ -154,43 +154,45 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
               </div>
             </motion.div>
 
-            {/* Three Action Buttons matching RGB Energy */}
+            {/* Three Action Buttons with Distinct Animations */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap items-center gap-3.5 w-full sm:w-auto mb-8"
             >
-              {/* Primary: Start Your Project (RGBK Combined Primary) */}
+              {/* Primary: Start Your Project (RGBK Combined Primary + Shimmer & WhatsApp Wiggle) */}
               <a
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I would like to know more about your services.')}
                 target="_blank"
                 rel="noopener noreferrer"
                 id="hero-primary-whatsapp-btn"
-                className="btn-rgbk-primary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2 cursor-pointer"
+                className="btn-rgbk-primary btn-anim-whatsapp group px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2.5 cursor-pointer shadow-xl"
               >
-                <MessageCircle className="w-4 h-4 fill-current" />
+                <MessageCircle className="w-4 h-4 fill-current group-hover:rotate-12 group-hover:scale-110 transition-transform" />
                 <span>START YOUR PROJECT</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#070B14] animate-ping" />
               </a>
 
-              {/* Secondary: View Portfolio (RGBK Combined Secondary) */}
+              {/* Secondary: View Portfolio (RGBK Combined Secondary + Palette Zoom) */}
               <a
                 href="#portfolio"
                 id="hero-view-portfolio-btn"
-                className="btn-rgbk-secondary px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2 cursor-pointer"
+                className="btn-rgbk-secondary group px-7 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2 cursor-pointer hover:border-[#00E5FF]/60"
               >
-                <Palette className="w-4 h-4 text-[#00E5FF]" />
+                <Palette className="w-4 h-4 text-[#00E5FF] group-hover:scale-125 group-hover:rotate-6 transition-transform" />
                 <span>VIEW PORTFOLIO</span>
               </a>
 
-              {/* Third: Get A Quote (RGBK Combined Secondary) */}
+              {/* Third: Get A Quote (RGBK Combined Secondary + Arrow Slide) */}
               <button
                 onClick={onOpenInquiry}
                 id="hero-get-quote-btn"
-                className="btn-rgbk-secondary px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2 cursor-pointer"
+                className="btn-rgbk-secondary group px-6 py-3.5 rounded-xl font-bold text-sm tracking-wide inline-flex items-center gap-2 cursor-pointer hover:border-[#FF2A5F]/60"
               >
-                <FileSpreadsheet className="w-4 h-4 text-[#FF2A5F]" />
+                <FileSpreadsheet className="w-4 h-4 text-[#FF2A5F] group-hover:scale-110 transition-transform" />
                 <span>GET A QUOTE</span>
+                <ArrowRight className="w-3.5 h-3.5 opacity-0 -ml-2 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#FF2A5F]" />
               </button>
             </motion.div>
 
@@ -221,13 +223,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
             <div className="grid grid-cols-2 gap-4">
               
               {/* Card 1: Col-span-2 Featured Video Service [RED CHANNEL] */}
-              <div className="col-span-2 bg-[#0D1424] border border-[#FF2A5F]/20 hover:border-[#FF2A5F]/60 p-6 rounded-2xl flex flex-col justify-between group overflow-hidden relative transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(255,42,95,0.2)]">
-                <div className="absolute top-0 right-0 p-4 opacity-15 pointer-events-none group-hover:opacity-30 transition-opacity">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                whileHover={{ y: -4, scale: 1.01 }}
+                className="col-span-2 bg-[#0D1424] border border-[#FF2A5F]/20 hover:border-[#FF2A5F]/60 p-6 rounded-2xl flex flex-col justify-between group overflow-hidden relative transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(255,42,95,0.25)]"
+              >
+                <div className="absolute top-0 right-0 p-4 opacity-15 pointer-events-none group-hover:opacity-35 group-hover:scale-110 transition-all duration-300">
                   <Film className="w-20 h-20 text-[#FF2A5F]" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="w-2 h-2 rounded-full bg-[#FF2A5F] shadow-[0_0_8px_#FF2A5F]" />
+                    <span className="w-2 h-2 rounded-full bg-[#FF2A5F] shadow-[0_0_8px_#FF2A5F] animate-ping" />
                     <span className="text-[#FF2A5F] text-[11px] font-bold font-mono uppercase tracking-widest">
                       RED CHANNEL • FEATURED VIDEO
                     </span>
@@ -247,11 +255,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
                     Reels • Promo Ads • Motion Graphics
                   </span>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Card 2: Website Making [BLUE / CYAN CHANNEL] */}
-              <div className="bg-[#0D1424] border border-[#00E5FF]/20 hover:border-[#00E5FF]/60 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.2)]">
-                <div className="w-12 h-12 bg-[#00E5FF]/10 border border-[#00E5FF]/30 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 transition-transform text-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.2)]">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="bg-[#0D1424] border border-[#00E5FF]/20 hover:border-[#00E5FF]/60 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg hover:shadow-[0_0_25px_rgba(0,229,255,0.25)]"
+              >
+                <div className="w-12 h-12 bg-[#00E5FF]/10 border border-[#00E5FF]/30 rounded-full flex items-center justify-center mb-3 group-hover:scale-115 group-hover:rotate-6 transition-transform text-[#00E5FF] shadow-[0_0_15px_rgba(0,229,255,0.2)]">
                   <Globe className="w-6 h-6" />
                 </div>
                 <div className="flex items-center gap-1.5 mb-1">
@@ -262,11 +276,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
                 <p className="text-[10px] text-[#A8B0C0] mt-1 uppercase tracking-wider font-mono">
                   Landing Pages • Fast Sites
                 </p>
-              </div>
+              </motion.div>
 
               {/* Card 3: Graphic Design & Branding [GREEN CHANNEL] */}
-              <div className="bg-[#0D1424] border border-[#00E676]/20 hover:border-[#00E676]/60 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg hover:shadow-[0_0_25px_rgba(0,230,118,0.2)]">
-                <div className="w-12 h-12 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="bg-[#0D1424] border border-[#00E676]/20 hover:border-[#00E676]/60 p-5 rounded-2xl flex flex-col items-center text-center justify-center transition-all duration-300 group shadow-lg hover:shadow-[0_0_25px_rgba(0,230,118,0.25)]"
+              >
+                <div className="w-12 h-12 flex items-center justify-center mb-3 group-hover:scale-115 group-hover:-rotate-6 transition-transform">
                   <SukhenLogo variant="mark" className="w-12 h-12 drop-shadow-[0_0_12px_rgba(0,230,118,0.4)]" />
                 </div>
                 <div className="flex items-center gap-1.5 mb-1">
@@ -277,10 +297,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
                 <p className="text-[10px] text-[#A8B0C0] mt-1 uppercase tracking-wider font-mono">
                   Posters • Menus • Merch
                 </p>
-              </div>
+              </motion.div>
 
               {/* Card 4: Col-span-2 Have an Idea / Custom Quote [VIOLET CHANNEL] */}
-              <a
+              <motion.a
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                whileHover={{ y: -3, scale: 1.01 }}
                 href={getWhatsAppUrl('Hello Sukhen Sarkar, I have an idea for a project and would like to get a quote.')}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -293,16 +317,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenInquiry, onOpenVideoModal }) =
                   </div>
                   <h4 className="text-lg font-bold text-white group-hover:text-purple-300 transition-colors flex items-center gap-1.5">
                     <span>Have an Idea?</span>
-                    <Sparkles className="w-4 h-4 text-[#8B5CF6]" />
+                    <Sparkles className="w-4 h-4 text-[#8B5CF6] group-hover:rotate-12 transition-transform" />
                   </h4>
                   <p className="text-xs text-[#A8B0C0] mt-0.5">
                     Get a custom quote via WhatsApp today.
                   </p>
                 </div>
-                <div className="w-10 h-10 bg-white text-[#070B14] rounded-full flex items-center justify-center group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:scale-110 transition-all shadow-md">
-                  <ArrowRight className="w-5 h-5" />
+                <div className="w-10 h-10 bg-white text-[#070B14] rounded-full flex items-center justify-center group-hover:bg-[#8B5CF6] group-hover:text-white group-hover:scale-115 transition-all shadow-md">
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
                 </div>
-              </a>
+              </motion.a>
 
             </div>
           </div>

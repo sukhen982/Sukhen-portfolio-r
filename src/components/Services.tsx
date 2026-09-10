@@ -15,6 +15,7 @@ import {
   ExternalLink,
   ChevronRight,
 } from 'lucide-react';
+import { motion } from 'motion/react';
 import { ALL_SERVICES, getWhatsAppUrl } from '../data/siteContent';
 import { ServiceItem } from '../types';
 import { ServiceDetailModal } from './ServiceDetailModal';
@@ -60,9 +61,15 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3">
+        {/* Section Header with Viewport Animation */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0D1424] border border-cyan-500/30 text-cyan-400 text-xs font-mono mb-3 shadow-[0_0_15px_rgba(0,229,255,0.15)]">
             <Sparkles className="w-3.5 h-3.5" />
             <span>FULL CREATIVE & DIGITAL SUITE</span>
           </div>
@@ -72,25 +79,30 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
           <p className="mt-3 text-base sm:text-lg text-gray-300 font-medium">
             Creative solutions for your personal, business and digital needs.
           </p>
-        </div>
+        </motion.div>
 
         {/* 10 Animated Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {ALL_SERVICES.map((service) => (
-            <div
+          {ALL_SERVICES.map((service, idx) => (
+            <motion.div
               key={service.id}
-              className="relative rounded-2xl bg-[#0D1424] border border-gray-800/90 hover:border-cyan-400/40 p-6 transition-all duration-300 group hover:-translate-y-1 hover:shadow-[0_0_25px_rgba(0,229,255,0.12)] flex flex-col justify-between"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.45, delay: (idx % 3) * 0.1 }}
+              whileHover={{ y: -6, scale: 1.015 }}
+              className="relative rounded-2xl bg-[#0D1424] border border-gray-800/90 hover:border-cyan-400/40 p-6 transition-all duration-300 group hover:shadow-[0_0_25px_rgba(0,229,255,0.15)] flex flex-col justify-between"
             >
               {/* Card Header & Icon */}
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#131E36] border border-cyan-500/20 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:scale-105 transition-all">
+                  <div className="w-12 h-12 rounded-xl bg-[#131E36] border border-cyan-500/20 flex items-center justify-center group-hover:border-cyan-400/50 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                     {getServiceIcon(service.iconName)}
                   </div>
                   
                   <div className="flex items-center gap-2">
                     {service.popular && (
-                      <span className="text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded border border-cyan-500/30">
+                      <span className="text-[10px] font-mono font-bold bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded border border-cyan-500/30 animate-pulse">
                         POPULAR
                       </span>
                     )}
@@ -115,31 +127,37 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
               <div className="pt-4 border-t border-gray-800/80 flex items-center gap-2">
                 <button
                   onClick={() => setSelectedService(service)}
-                  className="flex-1 py-2.5 px-3 rounded-xl btn-rgbk-secondary text-xs font-semibold gap-1.5 cursor-pointer"
+                  className="flex-1 py-2.5 px-3 rounded-xl btn-rgbk-secondary text-xs font-semibold gap-1.5 cursor-pointer group/btn hover:border-[#00E5FF]/60"
                 >
                   <span>Learn More</span>
-                  <ChevronRight className="w-3.5 h-3.5 text-[#00E5FF]" />
+                  <ChevronRight className="w-3.5 h-3.5 text-[#00E5FF] group-hover/btn:translate-x-1 transition-transform" />
                 </button>
 
                 <a
                   href={getWhatsAppUrl(`Hello Sukhen Sarkar, I would like to get a quote for "${service.title}" (Service ${service.numberCode}).`)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 py-2.5 px-3 rounded-xl btn-rgbk-primary text-xs font-bold gap-1.5 cursor-pointer"
+                  className="flex-1 py-2.5 px-3 rounded-xl btn-rgbk-primary btn-anim-whatsapp text-xs font-bold gap-1.5 cursor-pointer group/btn shadow-md"
                 >
-                  <MessageCircle className="w-3.5 h-3.5 fill-[#070B14]/20" />
+                  <MessageCircle className="w-3.5 h-3.5 fill-[#070B14]/20 group-hover/btn:rotate-12 group-hover/btn:scale-125 transition-transform" />
                   <span>Get Quote</span>
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Don't see what you need? Contact me banner */}
-        <div className="mt-14 p-8 rounded-2xl bg-gradient-to-r from-[#0D1424] via-[#131E36] to-[#0D1424] border border-cyan-500/30 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Don't see what you need? Contact me banner with Motion */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-14 p-8 rounded-2xl bg-gradient-to-r from-[#0D1424] via-[#131E36] to-[#0D1424] border border-cyan-500/30 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6"
+        >
           <div className="text-center sm:text-left">
             <h3 className="font-heading font-bold text-xl sm:text-2xl text-white flex items-center justify-center sm:justify-start gap-2">
-              <Sparkles className="w-5 h-5 text-cyan-400" />
+              <Sparkles className="w-5 h-5 text-cyan-400 animate-spin-slow" />
               <span>DON'T SEE WHAT YOU NEED?</span>
             </h3>
             <p className="text-sm text-gray-300 mt-1 max-w-xl">
@@ -152,12 +170,12 @@ export const Services: React.FC<ServicesProps> = ({ onSelectForInquiry }) => {
             target="_blank"
             rel="noopener noreferrer"
             id="services-custom-request-btn"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl btn-rgbk-primary font-bold text-sm tracking-wide cursor-pointer"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl btn-rgbk-primary font-bold text-sm tracking-wide cursor-pointer shadow-xl group"
           >
             <span>CONTACT ME DIRECTLY</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
-        </div>
+        </motion.div>
 
       </div>
 
